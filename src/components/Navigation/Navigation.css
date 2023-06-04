@@ -1,0 +1,27 @@
+.navigation__nav {
+  padding: 0;
+  margin: 0;
+  gap: 30px;
+  display: flex;
+  list-style: none;
+}
+
+.navigation__link {
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-style: normal;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-light);
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+.navigation__link_active {
+  padding: 8px 20px;
+  background: var(--color-action);
+  color: var(--color-primary);
+}

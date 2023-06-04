@@ -1,0 +1,14 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+:root {
+  --font-primary: 'Inter', Arial, sans-serif;
+  --color-primary: #000;
+  --color-secondary: #073042;
+  --color-light: #fff;
+  --color-action: #3ddc84;
+  --color-primary-light: #272727;
+  --color-line: #424242;
+  --color-additional: #303030;
+  --color-text: #8b8b8b;
+}

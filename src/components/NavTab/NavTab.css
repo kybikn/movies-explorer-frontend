@@ -1,0 +1,20 @@
+.navtab__button {
+  max-width: 129px;
+  margin-bottom: 25px;
+  opacity: 0.6;
+  border: 1px solid var(--color-light);
+  border-radius: 3px;
+}
+
+.navtab__link {
+  display: flex;
+  padding: 10px 20px;
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  align-items: center;
+  color: var(--color-light);
+  text-decoration: none;
+}
