@@ -11,4 +11,8 @@
   --color-line: #424242;
   --color-additional: #303030;
   --color-text: #8b8b8b;
+  --color-button: #4285f4;
+  --color-register: #202020;
+  --color-error: #ee3465;
+  --color-input: #2f2f2f;
 }

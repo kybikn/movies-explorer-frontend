@@ -22,3 +22,17 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    max-width: 768px;
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 320px;
+    padding: 0 15px;
+  }
+}

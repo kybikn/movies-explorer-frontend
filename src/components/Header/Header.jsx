@@ -4,12 +4,12 @@ import './Header.css';
 
 function Header() {
   return (
-    <section className="header">
+    <header className="header">
       <div className="header__container">
         <div className="header__logo"></div>
         <Navigation />
       </div>
-    </section >
+    </header >
   )
 }
 

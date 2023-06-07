@@ -21,6 +21,10 @@
   margin-bottom: 20px;
 }
 
+.portfolio__link:last-child {
+  border-bottom: none;
+}
+
 .portfolio__link-title {
   margin: 0;
   padding: 0 0 19px;
@@ -35,4 +39,28 @@
 
 .portfolio__link-img {
   margin: 0 5px 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio__link-title {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .portfolio__title {
+    margin: 0 0 40px;
+    font-size: 14px;
+  }
+
+  .portfolio__link-title {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .portfolio__link-img {
+    margin: 0 2px 15px;
+    width: 15px;
+    height: 10px;
+  }
 }

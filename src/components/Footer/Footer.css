@@ -42,3 +42,40 @@
   line-height: 16px;
   color: var(--color-light);
 }
+
+@media screen and (max-width: 768px) {
+  .footer {
+    max-width: 768px;
+    padding: 39px 30px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    max-width: 320px;
+    padding: 60px 10px 20px;
+  }
+
+  .footer__text {
+    padding: 0 0 21px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .footer__content {
+    flex-direction: column-reverse;
+  }
+
+  .footer__list {
+    margin: 30px 0 30px;
+    gap: 6px;
+    flex-direction: column;
+  }
+
+  .footer__link {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
