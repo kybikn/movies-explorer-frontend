@@ -33,3 +33,44 @@
     padding: 0 15px;
   }
 }
+
+/* ----------------- */
+.burger {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .burger {
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin: 0 8px 11px 0;
+    transition: 0.7s;
+    cursor: pointer;
+  }
+
+  .burger:hover {
+    opacity: 0.5;
+  }
+
+  .burger__line {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 7px auto;
+    background: #fff;
+    transition: 0.7s;
+  }
+
+  .burger_active .burger__line_up {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .burger_active .burger__line_middle {
+    opacity: 0;
+  }
+
+  .burger_active .burger__line_down {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}

@@ -26,10 +26,11 @@
   border-radius: 9px;
   border: none;
   background: var(--color-input);
+  color: var(--color-light);
 }
 
 .search__input::placeholder {
-  padding-left: 63px;
+  padding: 0 0 0 63px;
   font-family: var(--font-primary);
   font-style: normal;
   font-weight: 400;

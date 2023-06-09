@@ -7,7 +7,14 @@ function Header2() {
   return (
     <header className="header2">
       <div className="header__container2">
-        <div className="header__logo2"><img src={logo} alt="Логотип"></img></div>
+        <div className="header__logo2">
+          <img src={logo} alt="Логотип"></img>
+        </div>
+        <div className='burger'>
+          <span className='burger__line burger__line_up'></span>
+          <span className='burger__line burger__line_middle'></span>
+          <span className='burger__line burger__line_down'></span>
+        </div>
         <Navigation2 />
       </div>
     </header >
