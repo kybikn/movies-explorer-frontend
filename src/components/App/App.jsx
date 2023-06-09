@@ -10,9 +10,16 @@ import Login from '../Login/Login';
 function App() {
   return (
     <div className="app">
-      <Main />
-      {/* <Movies /> */}
+
       <Routes>
+        <Route
+          path='/'
+          element={<Main />}
+        ></Route>
+        <Route
+          path='/movies'
+          element={<Movies />}
+        ></Route>
         <Route
           path='/signup'
           element={<Register />}

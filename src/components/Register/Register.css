@@ -1,10 +1,11 @@
 .auth__signin {
   width: 396px;
-  margin: 70px auto 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: var(--color-register);
+  color: var(--color-secondary);
+  margin: 0 auto;
+  padding: 70px 0;
 }
 
 .auth__title {
@@ -94,7 +95,7 @@
 }
 
 .auth__footer {
-  margin: 0 0 70px;
+  /* margin: 0 0 70px; */
   display: flex;
   justify-content: center;
 }
