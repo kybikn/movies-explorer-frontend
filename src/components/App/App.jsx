@@ -1,16 +1,17 @@
-// import logo from './logo.svg';
 import { Route, Routes } from 'react-router-dom';
+
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
-import './App.css';
-import NotFound from '../NotFound/NotFound';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import NotFound from '../NotFound/NotFound';
+import './App.css';
 
 function App() {
   return (
     <div className="app">
-
       <Routes>
         <Route
           path='/'
@@ -20,6 +21,12 @@ function App() {
           path='/movies'
           element={<Movies />}
         ></Route>
+        <Route
+          path='/saved-movies'
+          element={<SavedMovies />}
+        ></Route>
+        <Route path="/profile" element={<Profile
+        />} />
         <Route
           path='/signup'
           element={<Register />}

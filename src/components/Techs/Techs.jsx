@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Techs.css';
 
 function Techs() {
@@ -18,7 +19,6 @@ function Techs() {
           <li className='techs__item'>mongoDB</li>
         </ul>
       </div>
-
     </section>
   )
 }

@@ -4,7 +4,6 @@
   padding: 70px 70px 0;
   display: flex;
   flex-direction: column;
-  background: var(--color-secondary);
 }
 
 .gallery__list {

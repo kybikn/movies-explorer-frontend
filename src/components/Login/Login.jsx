@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-// import { Route, Routes, useNavigate } from 'react-router-dom';
+
 import './Login.css';
 import logo from '../../images/logo.svg'
 
@@ -26,7 +26,7 @@ function Login() {
           <fieldset className="auth__box">
             <label className="auth__label">E-mail
               <input
-                className="auth__input"
+                className="auth__input" placeholder='pochta@yandex.ru|'
                 required />
               <span className="auth-error"></span>
             </label >

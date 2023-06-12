@@ -1,14 +1,14 @@
 import React from 'react'
-import './Movies.css';
-import Header2 from '../Header2/Header2';
+
+import HeaderMovies from '../HeaderMovies/HeaderMovies';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 
 function Movies() {
   return (
-    <div className="movies">
-      <Header2 />
+    <div className="main">
+      <HeaderMovies />
       <SearchForm />
       <MoviesCardList />
       <Footer />

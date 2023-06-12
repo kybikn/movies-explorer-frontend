@@ -1,33 +1,29 @@
 import React from 'react'
-import './MoviesCardList.css';
-import Card from '../Card/Card';
+
+import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
+import './MoviesCardList.css';
 
 function MoviesCardList() {
 
   return (
     <section className='gallery' aria-label="Галерея карточек">
-      <div>
-        <ul className='gallery__list'>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </ul>
-      </div>
-      <div>
-        <Preloader />
-      </div>
+      <ul className='gallery__list'>
+        <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
+        {/* <MoviesCard />
+        <MoviesCard />
+        <MoviesCard /> */}
+        {/* <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
+        <MoviesCard /> */}
+      </ul>
+      <Preloader />
     </section>
-
   )
 }
 

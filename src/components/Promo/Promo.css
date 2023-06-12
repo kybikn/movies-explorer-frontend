@@ -1,7 +1,7 @@
 .promo {
   max-width: 1280px;
-  padding: 75px 70px 48px;
   margin: 0 auto;
+  padding: 75px 70px 48px;
   display: flex;
   flex-direction: column;
   background: var(--color-multicolor);
@@ -73,7 +73,7 @@
 @media screen and (max-width: 320px) {
   .promo {
     max-width: 320px;
-    padding: 70px 10px 30px;
+    padding: 70px 10px 28px;
   }
 
   .promo__img {

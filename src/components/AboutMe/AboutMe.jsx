@@ -1,7 +1,8 @@
 import React from 'react'
+
+import Portfolio from '../Portfolio/Portfolio';
 import './AboutMe.css';
 import photo from '../../images/photo.jpg'
-import Portfolio from '../Portfolio/Portfolio';
 
 
 function AboutMe() {
@@ -16,9 +17,7 @@ function AboutMe() {
             и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
           <p className='about-me__text_s'>Github</p>
         </div>
-        <div>
-          <img src={photo} alt="Мое фото" className="about-me__img"></img>
-        </div>
+        <img className="about-me__img" src={photo} alt="Мое фото"></img>
       </div>
       <Portfolio />
     </section>

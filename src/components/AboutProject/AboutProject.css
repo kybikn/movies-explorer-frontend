@@ -1,7 +1,7 @@
 .about-project {
   max-width: 1280px;
-  padding: 110px 70px;
   margin: 0 auto;
+  padding: 110px 70px;
 }
 
 .about-project__title {
@@ -18,10 +18,10 @@
 }
 
 .about-project__content {
+  margin-bottom: 110px;
+  gap: 50px;
   display: flex;
   justify-content: space-between;
-  gap: 50px;
-  margin-bottom: 110px;
 }
 
 .about-project__subtitle {
@@ -61,33 +61,33 @@
 .about-project__column-left {
   margin: 0;
   padding: 9px 14px;
-  --font-primary: 'Inter', Arial, sans-serif;
+  text-align: center;
+  font-family: var(--font-primary);
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  text-align: center;
-  color: var(--color-primary);
   background: var(--color-action);
+  color: var(--color-primary);
 }
 
 .about-project__column-right {
   margin: 0;
   padding: 9px 14px;
-  --font-primary: 'Inter', Arial, sans-serif;
+  text-align: center;
+  font-family: var(--font-primary);
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  text-align: center;
-  color: var(--color-light);
   background: var(--color-additional);
+  color: var(--color-light);
 }
 
 .about-project__column-text {
   margin: 0;
   padding: 14px 14px 0;
-  --font-primary: 'Inter', Arial, sans-serif;
+  font-family: var(--font-primary);
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -102,8 +102,8 @@
   }
 
   .about-project__content {
+    margin: 0 0 93px;
     gap: 35px;
-    margin-bottom: 93px;
   }
 
   .about-project__subtitle {
@@ -132,15 +132,15 @@
 
   .about-project__title {
     margin: 0 0 60px;
-    padding-bottom: 28px;
+    padding: 0 0 28px;
     font-size: 18px;
     line-height: 22px;
   }
 
   .about-project__content {
-    flex-direction: column;
+    margin: 0 0 60px;
     gap: 56px;
-    margin-bottom: 60px;
+    flex-direction: column;
   }
 
   .about-project__subtitle {
