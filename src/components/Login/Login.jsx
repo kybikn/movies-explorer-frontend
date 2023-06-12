@@ -26,17 +26,20 @@ function Login() {
           <fieldset className="auth__box">
             <label className="auth__label">E-mail
               <input
-                className="auth__input" placeholder='pochta@yandex.ru|'
+                className="auth__input"
+                placeholder='pochta@yandex.ru|'
+                type="email"
                 required />
               <span className="auth-error"></span>
             </label >
             <label className="auth__label">Пароль
               <input
                 className="auth__input"
+                type="password"
                 required />
               <span className="auth-error">Что-то пошло не так...</span>
             </label >
-            <button className="auth__button">
+            <button className="auth__button" type='submit'>
               Войти
             </button>
           </fieldset>

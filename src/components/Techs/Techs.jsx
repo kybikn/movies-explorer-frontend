@@ -4,7 +4,7 @@ import './Techs.css';
 
 function Techs() {
   return (
-    <section className='techs'>
+    <section className='techs' aria-label="Технологии проекта">
       <h2 className='techs__title'>Технологии</h2>
       <div className='techs__content'>
         <h3 className='techs__subtitle'>7 технологий</h3>

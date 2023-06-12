@@ -5,7 +5,7 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <section className='footer'>
+    <section className='footer' aria-label="Секция с сылками">
       <p className='footer__text'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
       <div className='footer__content'>
         <p className='footer__link'>© 2020</p>

@@ -11,24 +11,25 @@ function Profile() {
         <div className='profile'>
           <h1 className='profile__title'>Привет, Виталий!</h1>
           <form className='profile__form'>
-
             <fieldset className='profile__fieldset'>
               <label className='profile__label'>Имя</label >
               <input
-                className='profile__input' placeholder='Виталий'
+                className='profile__input'
+                placeholder='Виталий'
+                type="text"
                 required />
             </fieldset>
             <span className="profile__error"></span>
-
             <fieldset className='profile__fieldset'>
               <label className='profile__label'>E-mail</label >
               <input
-                className='profile__input' placeholder='pochta@yandex.ru'
+                className='profile__input'
+                placeholder='pochta@yandex.ru'
+                type="email"
                 required />
             </fieldset>
             <span className="profile__error"></span>
             <button className='profile__button'>Редактировать</button>
-            {/* <Link to='/signup' className='profile__button'>Редактировать</Link> */}
           </form>
           <Link to='/signin' className='profile__link'>Выйти из аккаунта</Link>
         </div>

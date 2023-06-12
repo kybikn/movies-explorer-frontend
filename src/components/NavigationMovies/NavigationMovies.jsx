@@ -29,7 +29,7 @@ function NavigationMovies() {
 
   function handleProfile(event) {
     event.preventDefault();
-    navigate('/signin', { replace: true })
+    navigate('/profile', { replace: true })
   }
 
   return (

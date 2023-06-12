@@ -24,23 +24,31 @@ function Register() {
           <fieldset className="auth__box">
             <label className="auth__label">Имя
               <input
-                className="auth__input" placeholder='Виталий'
+                className="auth__input"
+                placeholder='Виталий'
+                type="text"
                 required />
               <span className="auth-error"></span>
             </label >
             <label className="auth__label">E-mail
               <input
-                className="auth__input" placeholder='pochta@yandex.ru|'
+                className="auth__input"
+                placeholder='pochta@yandex.ru|'
+                type="email"
                 required />
               <span className="auth-error"></span>
             </label >
             <label className="auth__label">Пароль
               <input
-                className="auth__input auth-input-error" placeholder='••••••••••••••'
+                className="auth__input auth-input-error"
+                placeholder='••••••••••••••'
+                type="password"
                 required />
               <span className="auth-error">Что-то пошло не так...</span>
             </label >
-            <button className="auth__button">Зарегистрироваться</button>
+            <button className="auth__button"
+              type='submit'>Зарегистрироваться
+            </button>
           </fieldset>
         </form>
         <div className='auth__footer'>

@@ -6,7 +6,7 @@ import promologo from '../../images/promologo.png'
 
 function Promo() {
   return (
-    <section className="promo">
+    <section className="promo" aria-label="Обложка проекта">
       <div className="promo__content">
         <div>
           <h1 className="promo__title">Учебный проект студента факультета Веб‑разработки.</h1>

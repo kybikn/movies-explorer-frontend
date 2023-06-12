@@ -14,13 +14,13 @@ function MoviesCardList() {
         <MoviesCard />
         <MoviesCard />
         <MoviesCard />
-        {/* <MoviesCard />
-        <MoviesCard />
-        <MoviesCard /> */}
-        {/* <MoviesCard />
         <MoviesCard />
         <MoviesCard />
-        <MoviesCard /> */}
+        <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
       </ul>
       <Preloader />
     </section>

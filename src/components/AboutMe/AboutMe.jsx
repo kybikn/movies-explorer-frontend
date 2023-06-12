@@ -7,7 +7,7 @@ import photo from '../../images/photo.jpg'
 
 function AboutMe() {
   return (
-    <section className='about-me'>
+    <section className='about-me' aria-label="Обо мне">
       <h2 className='about-me__title'>Студент</h2>
       <div className='about-me__content'>
         <div className='about-me__description'>

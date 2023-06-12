@@ -18,9 +18,8 @@ function MoviesCard() {
           type='button'
         ><img src={check} alt="Кнопка"></img></button> */}
         <button
-          className='card__button'
-          type='button'
-        >Сохранить</button>
+          className='card__button' type='submit'>Сохранить
+        </button>
       </figure>
     </li>
   )
