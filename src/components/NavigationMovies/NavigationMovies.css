@@ -62,7 +62,7 @@
     visibility: hidden;
     opacity: 0;
     background: var(--color-secondary);
-    animation: open 6s ease-in-out;
+    animation: open 0.7s ease-in-out;
   }
 
   .navigation-movies_visible {
