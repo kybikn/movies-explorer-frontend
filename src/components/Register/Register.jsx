@@ -1,62 +1,42 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-import './Register.css'
-import logo from '../../images/logo.svg'
+import AuthForm from '../AuthForm/AuthForm';
+import useFormAndValidation from '../../hooks/useFormAndValidation';
 
-function Register() {
-  const navigate = useNavigate();
+function Register({ onRegister }) {
+  const { values, errors, isValid, setValues, handleChange, resetForm } = useFormAndValidation();
 
-  function onSubmit(event) {
-    event.preventDefault();
-    navigate('/signin', { replace: true })
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onRegister({
+      name: values['name'],
+      email: values['email'],
+      password: values['password']
+    });
+    resetForm();
   }
 
   return (
-    <div className="main">
-      <div className="auth__signin">
-        <Link to='/'><img src={logo} alt="Логотип"></img></Link>
-        <h2 className="auth__title">Добро пожаловать!</h2>
-        <form
-          className="auth__form"
-          onSubmit={onSubmit}
-        >
-          <fieldset className="auth__box">
-            <label className="auth__label">Имя
-              <input
-                className="auth__input"
-                placeholder='Виталий'
-                type="text"
-                required />
-              <span className="auth-error"></span>
-            </label >
-            <label className="auth__label">E-mail
-              <input
-                className="auth__input"
-                placeholder='pochta@yandex.ru|'
-                type="email"
-                required />
-              <span className="auth-error"></span>
-            </label >
-            <label className="auth__label">Пароль
-              <input
-                className="auth__input auth-input-error"
-                placeholder='••••••••••••••'
-                type="password"
-                required />
-              <span className="auth-error">Что-то пошло не так...</span>
-            </label >
-            <button className="auth__button"
-              type='submit'>Зарегистрироваться
-            </button>
-          </fieldset>
-        </form>
-        <div className='auth__footer'>
-          <p className="auth__text">Уже зарегистрированы?</p>
-          <Link to="/signin" className="auth__link">Войти</Link>
-        </div>
-      </div>
-    </div>
+    <AuthForm
+      formName='signup'
+      title='Добро пожаловать!'
+      btnText='Зарегистрироваться'
+      text='Уже зарегистрированы?'
+      link='Войти'
+      values={values}
+      errors={errors}
+      isValid={isValid}
+      setValues={setValues}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
+    >
+    </AuthForm>
   )
 }
 

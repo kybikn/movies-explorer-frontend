@@ -1,4 +1,4 @@
-.auth__signin {
+.auth {
   width: 396px;
   margin: 0 auto;
   padding: 70px 0;
@@ -135,7 +135,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .auth__signin {
+  .auth {
     width: 396px;
     padding: 232px 0;
   }
@@ -145,8 +145,8 @@
   }
 }
 
-@media screen and (max-width: 320px) {
-  .auth__signin {
+@media screen and (max-width: 425px) {
+  .auth {
     width: 320px;
     padding: 56px 0;
     margin: 0 auto 70px;
