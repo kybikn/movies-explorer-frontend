@@ -1,0 +1,20 @@
+:root {
+  --font-primary: 'Inter', Arial, sans-serif;
+  --color-primary: #000;
+  --color-multicolor: #073042;
+  --color-light: #fff;
+  --color-action: #3ddc84;
+  --color-primary-light: #272727;
+  --color-line: #424242;
+  --color-additional: #303030;
+  --color-button-save: #313131;
+  --color-text: #8b8b8b;
+  --color-button: #4285f4;
+  --color-secondary: #202020;
+  --color-error: #ee3465;
+  --color-input: #2f2f2f;
+  --color-border: rgba(170, 170, 170, 0.2);
+  --color-card: #222222;
+  --color-tumb: #343434;
+  --color-switch: #2be080;
+}
