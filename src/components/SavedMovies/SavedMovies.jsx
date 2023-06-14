@@ -8,7 +8,7 @@ import './SavedMovies.css';
 
 function SavedMovies() {
   return (
-    <div className="movies">
+    <div className="main">
       <HeaderMovies />
       <SearchForm />
       <MoviesCardList />
