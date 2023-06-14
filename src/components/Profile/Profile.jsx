@@ -17,6 +17,8 @@ function Profile() {
                 className='profile__input'
                 placeholder='Виталий'
                 type="text"
+                minLength={3}
+                maxLength={40}
                 required />
             </fieldset>
             <span className="profile__error"></span>
@@ -26,6 +28,8 @@ function Profile() {
                 className='profile__input'
                 placeholder='pochta@yandex.ru'
                 type="email"
+                minLength={3}
+                maxLength={40}
                 required />
             </fieldset>
             <span className="profile__error"></span>
