@@ -1,0 +1,23 @@
+.card__button {
+  width: 100px;
+  height: 29px;
+  margin: 0 auto;
+  padding: 10px 17px;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 11px;
+  background: var(--color-button-save);
+  color: var(--color-light);
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 420px) {
+  .card__button {
+    padding: 10px 17px;
+  }
+}
