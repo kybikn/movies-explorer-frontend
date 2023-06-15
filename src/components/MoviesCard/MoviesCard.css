@@ -50,12 +50,12 @@
 @media screen and (max-width: 888px) {
   .card {
     width: 342px;
-    height: 190px;
+    height: 309px;
   }
 
   .card__img {
     width: 342px;
-    height: 309px;
+    height: 190px;
   }
 }
 
