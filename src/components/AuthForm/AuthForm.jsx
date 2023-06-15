@@ -22,8 +22,9 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
           onSubmit={onSubmit}
         >
           <fieldset className="auth__box">
-            {formName === 'signup'
-              ? <label className="auth__label"
+            {/* {formName === 'signup'
+              ?
+               <label className="auth__label"
               >Имя
                 <input
                   className="auth__input"
@@ -36,7 +37,20 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
                   required />
                 <span className="auth-error">{errors['name'] || ''}</span>
               </label >
-              : ''}
+              : ''} */}
+            <label className="auth__label"
+            >Имя
+              <input
+                className="auth__input"
+                value={values.name || ""}
+                name="name"
+                type="text"
+                minLength={3}
+                maxLength={40}
+                onChange={onChange}
+                required />
+              {/* <span className="auth-error">{errors['name'] || ''}</span> */}
+            </label >
             <label className="auth__label">E-mail
               <input
                 className="auth__input"
@@ -47,7 +61,7 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
                 maxLength={40}
                 onChange={onChange}
                 required />
-              <span className="auth-error">{errors['email'] || ''}</span>
+              {/* <span className="auth-error">{errors['email'] || ''}</span> */}
             </label >
             <label className="auth__label">Пароль
               <input
@@ -59,7 +73,7 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
                 maxLength={20}
                 onChange={onChange}
                 required />
-              <span className="auth-error">{errors['password'] || ''}</span>
+              {/* <span className="auth-error">{errors['password'] || ''}</span> */}
             </label >
             <button className="auth__button hover"
               type='submit'
