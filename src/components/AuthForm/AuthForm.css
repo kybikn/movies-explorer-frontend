@@ -106,6 +106,15 @@
   cursor: pointer;
 }
 
+.auth__button:disabled {
+  opacity: 0.2;
+}
+
+.auth__button:disabled:hover {
+  opacity: 0.5;
+  background: var(--color-text);
+}
+
 .auth__footer {
   display: flex;
   justify-content: center;
