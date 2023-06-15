@@ -12,7 +12,7 @@ function HeaderMovies() {
       <div className="header-movies__container">
         <Link to='/'>
           <img
-            className='header__img'
+            className='header__img hover'
             src={logo}
             alt="Логотип">
           </img>
