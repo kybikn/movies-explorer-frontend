@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+import ProtectedRouteElement from '../ProtectedRouteElement/ProtectedRouteElement';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -24,10 +25,15 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route
+        {/* <Route
           path='/'
           element={<Main />}>
-        </Route>
+        </Route> */}
+        <Route
+          path='/'
+          element={<ProtectedRouteElement
+            element={Main} />}
+        ></Route>
         <Route
           path='/movies'
           element={<Movies />}>
