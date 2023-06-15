@@ -10,13 +10,13 @@ function Navigation() {
       <li>
         <NavLink
           to="/signup"
-          className="navigation__link"
+          className="navigation__link hover"
         >Регистрация</NavLink>
       </li>
       <li>
         <NavLink
           to="/signin"
-          className="navigation__link navigation__link_active"
+          className="navigation__link navigation__link_active hover"
         >Войти</NavLink>
       </li>
     </ul>

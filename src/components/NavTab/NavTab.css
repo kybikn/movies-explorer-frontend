@@ -17,6 +17,8 @@
   line-height: 16px;
   align-items: center;
   color: var(--color-light);
+  transition: 0.7s;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

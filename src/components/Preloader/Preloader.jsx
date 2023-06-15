@@ -2,13 +2,22 @@ import React from 'react'
 
 import './Preloader.css'
 
-const Preloader = () => {
+const Preloader = ({ onClick }) => {
+  // const [isLoading, setLoading] = useState(false);
   return (
     <div className="preloader">
-      <button className='preloader__button'>Ещё</button>
-      {/* <div className="preloader__container">
-        <span className="preloader__round"></span>
-      </div> */}
+      {/* {isLoading
+        ? (<div className="preloader__container">
+          <span className="preloader__round"></span>
+        </div>)
+        : (<button className='preloader__button hover'
+          onClick={onClick}
+        >Ещё</button>)
+      } */}
+      <button
+        className='preloader__button hover'
+        onClick={onClick}
+      >Ещё</button>
     </div>
   )
 };

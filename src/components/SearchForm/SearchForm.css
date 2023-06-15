@@ -60,6 +60,8 @@
   line-height: 18px;
   background: var(--color-button);
   color: var(--color-light);
+  transition: 0.7s;
+  cursor: pointer;
 }
 
 .search__button::after {

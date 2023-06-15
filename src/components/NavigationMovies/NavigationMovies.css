@@ -110,10 +110,6 @@
     cursor: pointer;
   }
 
-  .burger:hover {
-    opacity: 0.5;
-  }
-
   .burger__line {
     width: 28px;
     height: 3px;
@@ -163,6 +159,13 @@
 }
 
 @media screen and (max-width: 320px) {
+  .navigation-movies__nav {
+    gap: 24px;
+    width: 300px;
+    margin: 144px 10px 0;
+    flex-direction: column;
+  }
+
   .burger {
     margin: 0 5px 5px 0;
   }

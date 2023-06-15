@@ -41,6 +41,8 @@
   font-size: 13px;
   line-height: 16px;
   color: var(--color-light);
+  transition: 0.7s;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

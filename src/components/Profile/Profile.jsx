@@ -33,9 +33,9 @@ function Profile() {
                 required />
             </fieldset>
             <span className="profile__error"></span>
-            <button className='profile__button'>Редактировать</button>
+            <button className='profile__button hover'>Редактировать</button>
           </form>
-          <Link to='/signin' className='profile__link'>Выйти из аккаунта</Link>
+          <Link to='/signin' className='profile__link hover'>Выйти из аккаунта</Link>
         </div>
       </div>
     </div>

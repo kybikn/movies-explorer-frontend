@@ -40,6 +40,8 @@
 
 .portfolio__link-img {
   margin: 0 5px 10px;
+  transition: 0.7s;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

@@ -34,7 +34,7 @@ function NavigationMovies() {
 
   return (
     <div>
-      <div className={`burger ${isBurgerOpen && 'burger_active'}`}
+      <div className={`burger hover ${isBurgerOpen && 'burger_active'}`}
         onClick={handleBurgerClick}>
         <span className='burger__line burger__line_up'></span>
         <span className='burger__line burger__line_middle'></span>
@@ -45,28 +45,28 @@ function NavigationMovies() {
           <li>
             <NavLink
               to="/"
-              className={`navigation-movies__link_hidden ${isBurgerOpen && 'navigation-movies__link_mobile'}`}
+              className={`navigation-movies__link_hidden ${isBurgerOpen && 'navigation-movies__link_mobile hover'}`}
               onClick={handleMain}
             >Главная</NavLink>
           </li>
           <li>
             <NavLink
               to="/movies"
-              className={`navigation-movies__link ${isBurgerOpen && 'navigation-movies__link_mobile border'}`}
+              className={`navigation-movies__link hover ${isBurgerOpen && 'navigation-movies__link_mobile border'}`}
               onClick={handleMovies}
             >Фильмы</NavLink>
           </li>
           <li>
             <NavLink
               to="/saved-movies"
-              className={`navigation-movies__link ${isBurgerOpen && 'navigation-movies__link_mobile'}`}
+              className={`navigation-movies__link hover ${isBurgerOpen && 'navigation-movies__link_mobile'}`}
               onClick={handleSavedMovies}
             >Сохранённые фильмы</NavLink>
           </li>
         </ul>
         <NavLink
           to="/profile"
-          className="navigation-movies__link_profile"
+          className="navigation-movies__link_profile hover"
           onClick={handleProfile}
         ><img src={profile} alt="Профиль"></img>Аккаунт</NavLink>
       </div>

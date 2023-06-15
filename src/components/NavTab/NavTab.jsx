@@ -6,7 +6,7 @@ import './NavTab.css'
 function NavTab() {
   return (
     <div className="navtab__button">
-      <Link className="navtab__link"
+      <Link className="navtab__link hover"
         to="/">Узнать больше
       </Link>
     </div>

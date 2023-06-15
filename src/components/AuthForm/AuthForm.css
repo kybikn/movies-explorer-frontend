@@ -52,7 +52,6 @@
   position: relative;
   border: none;
   border-radius: 8px;
-  outline: none;
   font-family: var(--font-primary);
   font-style: normal;
   font-weight: 500;
@@ -132,6 +131,8 @@
   font-size: 14px;
   line-height: 17px;
   color: var(--color-button);
+  transition: 0.7s;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
