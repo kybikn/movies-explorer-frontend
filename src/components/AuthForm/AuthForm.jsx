@@ -9,7 +9,11 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
     <div className="main">
       <div className="auth">
         <Link to='/'>
-          <img src={logo} alt="Логотип"></img>
+          <img
+            className='header__img'
+            src={logo}
+            alt="Логотип">
+          </img>
         </Link>
         <h2 className="auth__title">{title}</h2>
         <form
@@ -18,13 +22,12 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
           onSubmit={onSubmit}
         >
           <fieldset className="auth__box">
-            {formName === 'signup' ?
-              <label className="auth__label"
+            {formName === 'signup'
+              ? <label className="auth__label"
               >Имя
                 <input
                   className="auth__input"
                   value={values.name || ""}
-                  placeholder='Виталий'
                   name="name"
                   type="text"
                   minLength={3}
@@ -32,12 +35,12 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
                   onChange={onChange}
                   required />
                 <span className="auth-error">{errors['name'] || ''}</span>
-              </label > : ''}
+              </label >
+              : ''}
             <label className="auth__label">E-mail
               <input
                 className="auth__input"
                 value={values.email || ""}
-                placeholder='pochta@yandex.ru|'
                 name="email"
                 type="email"
                 minLength={3}
@@ -50,7 +53,6 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
               <input
                 className="auth__input auth-input-error"
                 value={values.password || ""}
-                placeholder='••••••••••••••'
                 name="password"
                 type="password"
                 minLength={6}
@@ -59,7 +61,7 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
                 required />
               <span className="auth-error">{errors['password'] || ''}</span>
             </label >
-            <button className="auth__button"
+            <button className="auth__button hover"
               type='submit'
               disabled={!isValid}
             >{btnText}
@@ -68,10 +70,15 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
         </form>
         <div className='auth__footer'>
           <p className="auth__text">{text}</p>
-          {formName === 'signup' ? (<NavLink to='/signin'
-            className="auth__link">{link}</NavLink>) :
-            (<NavLink to='/signup'
-              className="auth__link">{link}</NavLink>)
+          {formName === 'signup'
+            ? (<NavLink
+              to='/signin'
+              className="auth__link hover">{link}
+            </NavLink>)
+            : (<NavLink
+              to='/signup'
+              className="auth__link hover">{link}
+            </NavLink>)
           }
         </div>
       </div>

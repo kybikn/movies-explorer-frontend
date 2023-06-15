@@ -9,7 +9,13 @@ function Header() {
   return (
     <header className='header'>
       <div className='header__container'>
-        <Link to='/'><img src={logo} alt="Логотип"></img></Link>
+        <Link to='/'>
+          <img
+            className='header__img hover'
+            src={logo}
+            alt="Логотип">
+          </img>
+        </Link>
         <Navigation />
       </div>
     </header >

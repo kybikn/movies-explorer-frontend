@@ -14,16 +14,20 @@ function SearchForm() {
               placeholder='Фильм'
               type="text"
               required />
-            <img className='search__img' src={loupe} alt="Лупа"></img>
+            <img
+              className='search__img'
+              src={loupe}
+              alt="Лупа">
+            </img>
             <button
-              className='search__button'
+              className='search__button hover'
               type='submit'>Найти
             </button>
           </div>
           <div className='search__box'>
-            <label class="switch" for="checkbox">
+            <label className="switch" htmlFor="checkbox">
               <input type="checkbox" id="checkbox" />
-              <div class="slider round"></div>
+              <div className="slider round"></div>
             </label>
             <p className='search__text'>Короткометражки</p>
           </div>

@@ -10,7 +10,13 @@ function HeaderMovies() {
   return (
     <header className="header-movies">
       <div className="header-movies__container">
-        <Link to='/'><img src={logo} alt="Логотип"></img></Link>
+        <Link to='/'>
+          <img
+            className='header__img'
+            src={logo}
+            alt="Логотип">
+          </img>
+        </Link>
         <NavigationMovies />
       </div>
     </header >
