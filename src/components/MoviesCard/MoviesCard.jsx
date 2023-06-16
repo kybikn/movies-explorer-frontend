@@ -1,10 +1,29 @@
-import { React } from 'react';
+import { React, useEffect, useState } from 'react';
 
 import CardButton from '../CardButton/CardButton';
 import './MoviesCard.css';
+import notFoundImg from '../../images/notfound.jpg';
+import loadingImg from '../../images/loading-gif.gif';
 
 
 function MoviesCard({ nameRU, duration, imageUrl, type }) {
+  const [cardImage, setCardImage] = useState(loadingImg);
+
+  async function loadImage(imgUrl) {
+    const image = new Image();
+    image.onload = () => {
+      setCardImage(imgUrl);
+    };
+    image.onerror = () => {
+      setCardImage(notFoundImg);
+    };
+    image.src = imgUrl;
+  }
+
+  useEffect(() => {
+    loadImage(imageUrl)
+  }, [imageUrl]);
+
   return (
     <li>
       <figure className='card'>
@@ -14,7 +33,7 @@ function MoviesCard({ nameRU, duration, imageUrl, type }) {
         </figcaption>
         <img
           className='card__img'
-          src={imageUrl}
+          src={cardImage}
           alt={nameRU}>
         </img>
         <CardButton type={type} />
