@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from "react";
 
 import './Popup.css'
+import close from '../../images/close.svg'
 
 const Popup = ({ isOpen, onClose, name, children }) => {
 
@@ -25,14 +26,17 @@ const Popup = ({ isOpen, onClose, name, children }) => {
   return (
     <div
       onClick={handleOverlay}
-      className={`popup ${isOpen ? "popup_active" : ""} popup_type_${name}`}
-    >
+      className={`popup ${isOpen ? "popup_active" : ""} popup_type_${name}`}>
       <div className="popup__container">
         <button
-          className='popup__close'
+          className='popup__close hover'
           type='button'
-          onClick={onClose}
-        ></button>
+          onClick={onClose}>
+          <img
+            src={close}
+            alt="Логотип">
+          </img>
+        </button>
         {children}
       </div>
     </div>

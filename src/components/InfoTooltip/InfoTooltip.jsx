@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Popup from '../Popup/Popup';
+import './InfoTooltip.css';
 import successImg from '../../images/success.svg';
 import faultImg from '../../images/fault.svg';
 
