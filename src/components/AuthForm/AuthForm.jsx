@@ -22,7 +22,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
           onSubmit={onSubmit}
         >
           <fieldset className="auth__box">
-            {formName === 'signup'
+            {/* {formName === 'signup'
               ?
               <label className="auth__label"
               >Имя
@@ -37,7 +37,20 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                   required />
                 <span className="auth-error">{errors['name'] || ''}</span>
               </label >
-              : ''}
+              : ''} */}
+            <label className="auth__label"
+            >Имя
+              <input
+                className="auth__input"
+                value={values.name || ""}
+                name="name"
+                type="text"
+                minLength={3}
+                maxLength={40}
+                onChange={onChange}
+                required />
+              <span className="auth-error">{errors['name'] || ''}</span>
+            </label >
             <label className="auth__label">E-mail
               <input
                 className="auth__input"
