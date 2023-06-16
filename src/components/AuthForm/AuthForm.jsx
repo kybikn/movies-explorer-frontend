@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './AuthForm.css'
 import logo from '../../images/logo.svg'
 
-function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, values, errors, isValid }) {
+function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text, link, values, errors, isValid }) {
   return (
     <div className="main">
       <div className="auth">
@@ -69,6 +69,7 @@ function AuthForm({ formName, title, onSubmit, onChange, btnText, text, link, va
             >{btnText}
             </button>
           </fieldset>
+          {children}
         </form>
         <div className='auth__footer'>
           <p className="auth__text">{text}</p>
