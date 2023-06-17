@@ -1,5 +1,5 @@
 .portfolio__title {
-  margin: 0 0 50px;
+  margin: 100px 0 50px;
   font-family: var(--font-primary);
   font-style: normal;
   font-weight: 400;
@@ -45,6 +45,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .portfolio__title {
+    margin: 90px 0 50px;
+  }
+
   .portfolio__link-title {
     font-size: 28px;
   }
@@ -52,7 +56,7 @@
 
 @media screen and (max-width: 320px) {
   .portfolio__title {
-    margin: 0 0 40px;
+    margin: 70px 0 40px;
     font-size: 14px;
   }
 

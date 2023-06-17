@@ -39,7 +39,7 @@
 
 .about-me__text_l {
   margin: 0 0 26px;
-  --font-primary: 'Inter', Arial, sans-serif;
+  font-family: var(--font-primary);
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -49,7 +49,7 @@
 
 .about-me__text_m {
   margin: 0 0 99px;
-  --font-primary: 'Inter', Arial, sans-serif;
+  font-family: var(--font-primary);
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -58,13 +58,15 @@
 }
 
 .about-me__text_s {
-  margin: 0 0 101px;
-  --font-primary: 'Inter', Arial, sans-serif;
+  text-decoration: none;
+  font-family: var(--font-primary);
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
   color: var(--color-light);
+  transition: 0.7s;
+  cursor: pointer;
 }
 
 .about-me__img {
