@@ -73,7 +73,8 @@
   .navigation-movies__nav {
     gap: 28px;
     width: 340px;
-    margin: 159px 90px 0;
+    margin: 159px auto 0;
+    padding: 0 90px;
     flex-direction: column;
   }
 
@@ -158,11 +159,12 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 610px) {
   .navigation-movies__nav {
     gap: 24px;
     width: 300px;
     margin: 144px 10px 0;
+    padding: 0;
     flex-direction: column;
   }
 
@@ -173,5 +175,12 @@
   .burger__line {
     width: 22px;
     height: 2px;
+  }
+  .burger_active .burger__line_up {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .burger_active .burger__line_down {
+    transform: translateY(-9px) rotate(-45deg);
   }
 }
