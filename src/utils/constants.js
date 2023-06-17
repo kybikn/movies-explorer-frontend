@@ -16,12 +16,10 @@ export const portfolioLinks = [
 export const footerLinks = [
   {
     name: 'Яндекс.Практикум',
-    // link: 'https://practicum.yandex.ru/',
-    link: '#',
+    link: 'https://practicum.yandex.ru/',
   },
   {
     name: 'Github',
-    // link: 'https://github.com/kybikn',
-    link: '#',
+    link: 'https://github.com/kybikn',
   },
 ];
