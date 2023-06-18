@@ -4,7 +4,13 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+
+.header-main {
   background: var(--color-multicolor);
+}
+.header-movies {
+  background: var(--color-primary);
 }
 
 .header__container {

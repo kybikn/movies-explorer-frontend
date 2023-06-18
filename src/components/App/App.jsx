@@ -1,8 +1,9 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 // import { CurrentUserContext } from '../contexts/CurrentUserContext';
 // import ProtectedRouteElement from '../ProtectedRouteElement/ProtectedRouteElement';
+import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -10,6 +11,7 @@ import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
+import Footer from '../Footer/Footer';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import './App.css';
 
@@ -19,7 +21,14 @@ function App() {
   const [infoSuccess, setInfoSuccess] = useState(false);
   const [infoMessage, setInfoMessage] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const mainPage = location.pathname === '/';
+  const moviesPages = location.pathname === '/movies'
+    || location.pathname === '/saved-movies';
+  // const profilePage = location.pathname === '/profile';
 
   function handleRegister({ name, email, password }) {
     setInfoTooltipOpen(true);
@@ -39,7 +48,8 @@ function App() {
 
   return (
     // <CurrentUserContext.Provider value={currentUser}>
-    <div className="app">
+    <div className="page">
+      {mainPage || moviesPages ? <Header /> : ''}
       <Routes>
         <Route
           path='/'
@@ -74,6 +84,7 @@ function App() {
           element={<NotFound />}>
         </Route>
       </Routes>
+      {mainPage || moviesPages ? < Footer /> : ''}
       <InfoTooltip
         isOpen={isInfoTooltipOpen}
         onClose={onClose}

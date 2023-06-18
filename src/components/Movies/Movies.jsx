@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useBreakpoints } from '../../hooks/useWidth';
 import { beatfilmMovies, baseUrl } from '../../mockData/movies';
 
-import HeaderMovies from '../HeaderMovies/HeaderMovies';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
-import Footer from '../Footer/Footer';
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -53,12 +51,10 @@ function Movies() {
   }, [cardsAmount, more]);
 
   return (
-    <div className="main">
-      <HeaderMovies />
+    <div>
       <SearchForm />
       <MoviesCardList movies={movies} type='allMovies' />
       <Preloader onClick={handleMore} />
-      <Footer />
     </div>
   )
 }

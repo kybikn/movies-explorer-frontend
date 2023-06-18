@@ -1,13 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import HeaderMovies from '../HeaderMovies/HeaderMovies'
 import './Profile.css'
 
 function Profile() {
   return (
     <div>
-      <HeaderMovies />
       <div className='main'>
         <div className='profile'>
           <h1 className='profile__title'>Привет, Виталий!</h1>
