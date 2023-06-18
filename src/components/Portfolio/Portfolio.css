@@ -30,6 +30,7 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  list-style: none;
   font-family: var(--font-primary);
   font-style: normal;
   font-weight: 400;
