@@ -1,2 +1,10 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
+
+body {
+  height: 100vh;
+}
+
+.root {
+  background: var(--color-primary);
+}
