@@ -10,7 +10,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
       <div className="auth">
         <Link to='/'>
           <img
-            className='header__img hover'
+            className="header__img hover"
             src={logo}
             alt="Логотип">
           </img>
@@ -27,10 +27,10 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
               <label className="auth__label">Имя
                 <input
                   className="auth__input"
-                  value={values.name || ""}
+                  value={values.name || ''}
                   name="name"
                   type="text"
-                  placeholder='Имя'
+                  placeholder="Имя"
                   minLength={3}
                   maxLength={40}
                   onChange={onChange}
@@ -41,10 +41,10 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
             <label className="auth__label">E-mail
               <input
                 className="auth__input"
-                value={values.email || ""}
+                value={values.email || ''}
                 name="email"
                 type="email"
-                placeholder='E-mail'
+                placeholder="E-mail"
                 minLength={3}
                 maxLength={40}
                 onChange={onChange}
@@ -57,7 +57,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 value={values.password || ""}
                 name="password"
                 type="password"
-                placeholder='Пароль'
+                placeholder="Пароль"
                 minLength={6}
                 maxLength={20}
                 onChange={onChange}
@@ -66,14 +66,14 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
             </label >
             <button
               className="auth__button hover"
-              type='submit'
+              type="submit"
               disabled={!isValid}
             >{btnText}
             </button>
           </fieldset>
           {children}
         </form>
-        <div className='auth__footer'>
+        <div className="auth__footer">
           <p className="auth__text">{text}</p>
           {formName === 'signup'
             ? (<NavLink

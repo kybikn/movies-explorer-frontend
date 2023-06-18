@@ -37,7 +37,7 @@
   color: var(--color-light);
 }
 
-.about-me__text_l {
+.about-me__about {
   margin: 0 0 26px;
   font-family: var(--font-primary);
   font-style: normal;
@@ -47,7 +47,7 @@
   color: var(--color-light);
 }
 
-.about-me__text_m {
+.about-me__text {
   margin: 0 0 99px;
   font-family: var(--font-primary);
   font-style: normal;
@@ -57,7 +57,7 @@
   color: var(--color-light);
 }
 
-.about-me__text_s {
+.about-me__link {
   text-decoration: none;
   font-family: var(--font-primary);
   font-style: normal;
@@ -95,19 +95,19 @@
     line-height: 40px;
   }
 
-  .about-me__text_l {
+  .about-me__about {
     margin: 0 0 20px;
     font-size: 12px;
     line-height: 18px;
   }
 
-  .about-me__text_m {
+  .about-me__text {
     margin: 0 0 87px;
     font-size: 12px;
     line-height: 18px;
   }
 
-  .about-me__text_s {
+  .about-me__link {
     margin: 0 0 91px;
   }
 
@@ -148,19 +148,19 @@
     line-height: 36px;
   }
 
-  .about-me__text_l {
+  .about-me__about {
     margin: 0 0 20px;
     font-size: 11px;
     line-height: 16px;
   }
 
-  .about-me__text_m {
+  .about-me__text {
     margin: 0 0 40px;
     font-size: 11px;
     line-height: 16px;
   }
 
-  .about-me__text_s {
+  .about-me__link {
     margin: 0 0 70px;
   }
 }

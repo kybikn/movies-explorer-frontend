@@ -1,5 +1,4 @@
-import React from 'react'
-import { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 import './Popup.css'
 import close from '../../images/close.svg'
@@ -26,11 +25,11 @@ const Popup = ({ isOpen, onClose, name, children }) => {
   return (
     <div
       onClick={handleOverlay}
-      className={`popup ${isOpen ? "popup_active" : ""} popup_type_${name}`}>
+      className={`popup ${isOpen ? 'popup_active' : ''} popup_type_${name}`}>
       <div className="popup__container">
         <button
-          className='popup__close hover'
-          type='button'
+          className="popup__close hover"
+          type="button"
           onClick={onClose}>
           <img
             src={close}

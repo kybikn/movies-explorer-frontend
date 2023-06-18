@@ -8,7 +8,7 @@ import faultImg from '../../images/fault.svg';
 function InfoTooltip({ isOpen, onClose, success, message }) {
   return (
     <Popup
-      name='tooltip'
+      name="tooltip"
       isOpen={isOpen}
       onClose={onClose}
     >

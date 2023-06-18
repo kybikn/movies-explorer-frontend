@@ -10,12 +10,12 @@ const Preloader = ({ onClick }) => {
         ? (<div className="preloader__container">
           <span className="preloader__round"></span>
         </div>)
-        : (<button className='preloader__button hover'
+        : (<button className="preloader__button hover"
           onClick={onClick}
         >Ещё</button>)
       } */}
       <button
-        className='preloader__button hover'
+        className="preloader__button hover"
         onClick={onClick}
       >Ещё</button>
     </div>

@@ -34,38 +34,38 @@ function NavigationMovies() {
 
   return (
     <div>
-      <div className={`burger hover ${isBurgerOpen && 'burger_active'}`}
+      <div className={`burger ${isBurgerOpen && 'burger_active'} hover`}
         onClick={handleBurgerClick}>
-        <span className='burger__line burger__line_up'></span>
-        <span className='burger__line burger__line_middle'></span>
-        <span className='burger__line burger__line_down'></span>
+        <span className="burger__line burger__line_up"></span>
+        <span className="burger__line burger__line_middle"></span>
+        <span className="burger__line burger__line_down"></span>
       </div>
       <div className={`navigation-movies ${isBurgerOpen && 'navigation-movies_visible'}`}>
-        <ul className='navigation-movies__nav'>
+        <ul className="navigation-movies__nav">
           <li>
             <NavLink
-              to="/"
+              to='/'
               className={`navigation-movies__link_hidden ${isBurgerOpen && 'navigation-movies__link_mobile hover'}`}
               onClick={handleMain}
             >Главная</NavLink>
           </li>
           <li>
             <NavLink
-              to="/movies"
+              to='/movies'
               className={`navigation-movies__link hover ${isBurgerOpen && 'navigation-movies__link_mobile border'}`}
               onClick={handleMovies}
             >Фильмы</NavLink>
           </li>
           <li>
             <NavLink
-              to="/saved-movies"
+              to='/saved-movies'
               className={`navigation-movies__link hover ${isBurgerOpen && 'navigation-movies__link_mobile'}`}
               onClick={handleSavedMovies}
             >Сохранённые фильмы</NavLink>
           </li>
         </ul>
         <NavLink
-          to="/profile"
+          to='/profile'
           className="navigation-movies__link_profile hover"
           onClick={handleProfile}
         ><img src={profile} alt="Профиль"></img>Аккаунт</NavLink>

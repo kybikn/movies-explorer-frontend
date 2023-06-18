@@ -9,7 +9,7 @@ function SavedMovies() {
   return (
     <div>
       <SearchForm />
-      <MoviesCardList movies={savedMovies} type='savedMovies' />
+      <MoviesCardList movies={savedMovies} type="savedMovies" />
       <SavedDevider />
     </div>
   )

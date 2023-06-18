@@ -4,7 +4,7 @@ import './SavedDevider.css'
 
 function SavedDevider() {
   return (
-    <div className='devider'></div>
+    <div className="devider"></div>
   )
 }
 

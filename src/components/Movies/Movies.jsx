@@ -53,7 +53,7 @@ function Movies() {
   return (
     <div>
       <SearchForm />
-      <MoviesCardList movies={movies} type='allMovies' />
+      <MoviesCardList movies={movies} />
       <Preloader onClick={handleMore} />
     </div>
   )

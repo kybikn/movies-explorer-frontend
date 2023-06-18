@@ -6,20 +6,22 @@ import './Navigation.css'
 
 function Navigation() {
   return (
-    <ul className="navigation__nav">
-      <li>
-        <NavLink
-          to="/signup"
-          className="navigation__link hover"
-        >Регистрация</NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/signin"
-          className="navigation__link navigation__link_active hover"
-        >Войти</NavLink>
-      </li>
-    </ul>
+    <div class="navigation">
+      <ul className="navigation__nav">
+        <li>
+          <NavLink
+            to='/signup'
+            className="navigation__link hover"
+          >Регистрация</NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/signin'
+            className="navigation__link navigation__link_active hover"
+          >Войти</NavLink>
+        </li>
+      </ul>
+    </div>
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+
 import './NotFound.css';
 
 function NotFound() {
@@ -9,7 +10,7 @@ function NotFound() {
         <p className="not-found__title">404</p>
         <p className="not-found__text">Страница не найдена</p>
         <Link className="not-found__button"
-          to="/"
+          to='/'
         >Назад</Link>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import Navigation from '../Navigation/Navigation';
 import NavigationMovies from '../NavigationMovies/NavigationMovies';
@@ -12,11 +11,11 @@ function Header() {
   const mainPage = location.pathname === '/';
 
   return (
-    <header className={`header ${mainPage ? "header-main" : "header-movies"}`}>
-      <div className='header__container'>
+    <header className={`header ${mainPage ? 'header_main' : 'header_movies'}`}>
+      <div className="header__container">
         <Link to='/'>
           <img
-            className='header__img hover'
+            className="header__img hover"
             src={logo}
             alt="Логотип">
           </img>

@@ -6,13 +6,13 @@ import './Portfolio.css';
 
 function Portfolio() {
   return (
-    <div>
-      <p className='portfolio__title'>Портфолио</p>
-      <ul className='portfolio__content'>
+    <div className="portfolio">
+      <p className="portfolio__title">Портфолио</p>
+      <ul className="portfolio__content">
         {portfolioLinks.map((link, index) =>
-          <li key={index} className='portfolio__item'>
+          <li key={index} className="portfolio__item">
             <Link
-              className='portfolio__link hover'
+              className="portfolio__link hover"
               to={`${link.link}`}
               target="_blank">{link.name}
             </Link>

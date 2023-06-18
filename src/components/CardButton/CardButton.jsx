@@ -19,15 +19,15 @@ function CardButton() {
     <>
       {moviesPage
         ? (<button
-          className={`card__button ${isButtonActive ? "card__button_save" : "card__button_delete"} hover`}
+          className={`card__button ${isButtonActive ? 'card__button_save' : 'card__button_delete'} hover`}
           onClick={onButtonClick}
-          type='button'
+          type="button"
         >
-          {isButtonActive ? <img src={check} alt="Кнопка"></img> : <p>Сохранить</p>}
+          {isButtonActive ? <img src={check} alt='Кнопка'></img> : <p>Сохранить</p>}
         </button>
         )
         : (<button
-          className='card__button card__button_delete hover'
+          className="card__button card__button_delete hover"
         >
           <img src={cross} alt="Кнопка"></img>
         </button>)

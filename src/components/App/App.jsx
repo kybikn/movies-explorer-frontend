@@ -1,5 +1,5 @@
-import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 
 // import { CurrentUserContext } from '../contexts/CurrentUserContext';
 // import ProtectedRouteElement from '../ProtectedRouteElement/ProtectedRouteElement';
@@ -70,13 +70,13 @@ function App() {
           element={<SavedMovies />}>
         </Route>
         <Route
-          path="/profile"
+          path='/profile'
           element={<Profile />} />
         <Route
           path='/signup'
           element={<Register onRegister={handleRegister} />} />
         <Route
-          path="/signin"
+          path='/signin'
           element={<Login onLogin={handleLogin} />} />
         <Route
           path='*'

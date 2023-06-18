@@ -26,17 +26,17 @@ function MoviesCard({ nameRU, duration, imageUrl, type }) {
 
   return (
     <li>
-      <figure className='card'>
-        <figcaption className='card__description'>
-          <h3 className='card__title'>{nameRU}</h3>
-          <p className='card__text'>{duration} минут</p>
+      <figure className="card">
+        <figcaption className="card__description">
+          <h3 className="card__title">{nameRU}</h3>
+          <p className="card__text">{duration} минут</p>
         </figcaption>
         <img
-          className='card__img'
+          className="card__img"
           src={cardImage}
           alt={nameRU}>
         </img>
-        <CardButton type={type} />
+        <CardButton />
       </figure>
     </li>
   )
