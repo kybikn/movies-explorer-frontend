@@ -34,7 +34,10 @@ function Profile() {
             <span className="profile__error"></span>
             <button className="profile__button hover">Редактировать</button>
           </form>
-          <Link to='/signin' className="profile__link hover">Выйти из аккаунта</Link>
+          <Link
+            to='/signin'
+            className="profile__link hover">Выйти из аккаунта
+          </Link>
         </div>
       </div>
     </div>

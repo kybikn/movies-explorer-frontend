@@ -35,7 +35,7 @@ function Movies() {
     l: { min: 1280, max: null },
   });
 
-  let cardsAmount = 12;
+  let cardsAmount;
   if (s) cardsAmount = 5;
   if (m) cardsAmount = 8;
   if (l) cardsAmount = 12;
