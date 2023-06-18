@@ -28,6 +28,7 @@ function App() {
   const mainPage = location.pathname === '/';
   const moviesPages = location.pathname === '/movies'
     || location.pathname === '/saved-movies';
+  const profilePage = location.pathname === '/profile';
 
   function handleRegister({ name, email, password }) {
     setInfoTooltipOpen(true);
@@ -48,7 +49,7 @@ function App() {
   return (
     // <CurrentUserContext.Provider value={currentUser}>
     <div className="page">
-      {mainPage || moviesPages ? <Header /> : ''}
+      {mainPage || moviesPages || profilePage ? <Header /> : ''}
       <Routes>
         <Route
           path='/'
