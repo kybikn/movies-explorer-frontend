@@ -6,7 +6,7 @@ import logo from '../../images/logo.svg'
 
 function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text, link, values, errors, isValid }) {
   return (
-    <div className="main">
+    <div>
       <div className="auth">
         <Link to='/'>
           <img
@@ -30,6 +30,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                   value={values.name || ""}
                   name="name"
                   type="text"
+                  placeholder='Имя'
                   minLength={3}
                   maxLength={40}
                   onChange={onChange}
@@ -43,6 +44,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 value={values.email || ""}
                 name="email"
                 type="email"
+                placeholder='E-mail'
                 minLength={3}
                 maxLength={40}
                 onChange={onChange}
@@ -55,6 +57,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 value={values.password || ""}
                 name="password"
                 type="password"
+                placeholder='Пароль'
                 minLength={6}
                 maxLength={20}
                 onChange={onChange}

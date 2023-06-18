@@ -70,10 +70,6 @@
   color: var(--color-light);
 }
 
-.auth-input-error::placeholder {
-  color: var(--color-error);
-}
-
 .auth-error {
   margin: 0 0 10px;
   font-family: var(--font-primary);
