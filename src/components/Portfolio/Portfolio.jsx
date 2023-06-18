@@ -1,8 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import { portfolioLinks } from '../../utils/constants'
 import './Portfolio.css';
-import arrow from '../../images/arrow.svg'
 
 function Portfolio() {
   return (
@@ -10,21 +10,14 @@ function Portfolio() {
       <p className='portfolio__title'>Портфолио</p>
       <ul className='portfolio__content'>
         {portfolioLinks.map((link, index) =>
-          <li key={index} className='portfolio__link'>
-            <h4 className='portfolio__link-title'>{link.name}</h4>
-            <a
-              href={`${link.link}`}
-              target="_blank"
-              rel="noreferrer">
-              <img
-                className="portfolio__link-img hover"
-                src={arrow}
-                alt={link.name}>
-              </img>
-            </a>
+          <li key={index} className='portfolio__item'>
+            <Link
+              className='portfolio__link hover'
+              to={`${link.link}`}
+              target="_blank">{link.name}
+            </Link>
           </li>
         )}
-
       </ul>
     </div>
   )
