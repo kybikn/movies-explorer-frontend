@@ -18,7 +18,8 @@ function AboutMe() {
           <a
             className="about-me__text_s hover"
             href='https://github.com/kybikn'
-            target="_blank" rel="noreferrer">Github
+            target="_blank"
+            rel="noreferrer">Github
           </a>
         </div>
         <img className="about-me__img" src={photo} alt="Мое фото"></img>

@@ -28,7 +28,6 @@ function App() {
   const mainPage = location.pathname === '/';
   const moviesPages = location.pathname === '/movies'
     || location.pathname === '/saved-movies';
-  // const profilePage = location.pathname === '/profile';
 
   function handleRegister({ name, email, password }) {
     setInfoTooltipOpen(true);
