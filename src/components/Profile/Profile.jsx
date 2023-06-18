@@ -32,7 +32,7 @@ function Profile() {
                 required />
             </fieldset>
             <span className="profile__error"></span>
-            <button className="profile__button hover">Редактировать</button>
+            <button className="profile__button hover" aria-label="Редактировать профиль">Редактировать</button>
           </form>
           <Link
             to='/signin'

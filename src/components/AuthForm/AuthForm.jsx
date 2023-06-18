@@ -35,7 +35,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                   maxLength={40}
                   onChange={onChange}
                   required />
-                <span className="auth-error">{errors['name'] || ''}</span>
+                <span className="auth__error">{errors['name'] || ''}</span>
               </label >
               : ''}
             <label className="auth__label">E-mail
@@ -49,11 +49,11 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 maxLength={40}
                 onChange={onChange}
                 required />
-              <span className="auth-error">{errors['email'] || ''}</span>
+              <span className="auth__error">{errors['email'] || ''}</span>
             </label >
             <label className="auth__label">Пароль
               <input
-                className="auth__input auth-input-error"
+                className="auth__input"
                 value={values.password || ""}
                 name="password"
                 type="password"
@@ -62,12 +62,13 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 maxLength={20}
                 onChange={onChange}
                 required />
-              <span className="auth-error">{errors['password'] || ''}</span>
+              <span className="auth__error">{errors['password'] || ''}</span>
             </label >
             <button
               className="auth__button hover"
               type="submit"
               disabled={!isValid}
+              area-label={btnText}
             >{btnText}
             </button>
           </fieldset>

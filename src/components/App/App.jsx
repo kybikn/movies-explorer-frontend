@@ -25,6 +25,7 @@ function App() {
   const navigate = useNavigate();
 
   const location = useLocation();
+
   const mainPage = location.pathname === '/';
   const moviesPages = location.pathname === '/movies'
     || location.pathname === '/saved-movies';

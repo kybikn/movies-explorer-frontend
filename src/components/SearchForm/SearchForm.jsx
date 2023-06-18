@@ -13,6 +13,8 @@ function SearchForm() {
               className="search__input"
               placeholder="Фильм"
               type="text"
+              minLength={3}
+              maxLength={60}
               required />
             <img
               className="search__img"
@@ -21,7 +23,8 @@ function SearchForm() {
             </img>
             <button
               className="search__button hover"
-              type="submit">Найти
+              type="submit"
+              area-label="Найти фильм">Найти
             </button>
           </div>
           <div className="search__box">

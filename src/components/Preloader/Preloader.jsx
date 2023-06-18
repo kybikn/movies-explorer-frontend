@@ -17,6 +17,7 @@ const Preloader = ({ onClick }) => {
       <button
         className="preloader__button hover"
         onClick={onClick}
+        area-label="Показать ещё фильмы"
       >Ещё</button>
     </div>
   )

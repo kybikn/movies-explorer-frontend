@@ -28,6 +28,7 @@ function CardButton() {
         )
         : (<button
           className="card__button card__button_delete hover"
+          type="button"
         >
           <img src={cross} alt="Кнопка"></img>
         </button>)
