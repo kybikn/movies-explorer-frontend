@@ -2,7 +2,6 @@
   width: 100px;
   height: 29px;
   margin: 0 auto;
-  padding: 10px 17px;
   border: none;
   border-radius: 30px;
   font-family: var(--font-primary);
@@ -14,10 +13,14 @@
   color: var(--color-light);
   transition: 0.7s;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media screen and (max-width: 420px) {
-  .card__button {
-    padding: 10px 17px;
-  }
+.card__button_save {
+  background: var(--color-error);
+}
+.card__button_delete {
+  background: var(--color-button-save);
 }
