@@ -39,9 +39,9 @@
   color: var(--color-text);
 }
 
-.search__input:focus {
+/* .search__input:focus {
   padding: 0 0 0 63px;
-}
+} */
 
 .search__img {
   position: absolute;
