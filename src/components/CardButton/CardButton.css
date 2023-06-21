@@ -1,0 +1,26 @@
+.card__button {
+  width: 100px;
+  height: 29px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 11px;
+  background: var(--color-button-save);
+  color: var(--color-light);
+  transition: 0.7s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__button_save {
+  background: var(--color-error);
+}
+.card__button_delete {
+  background: var(--color-button-save);
+}
