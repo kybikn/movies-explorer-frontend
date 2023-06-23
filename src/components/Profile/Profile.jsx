@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 import './Profile.css'
 
-function Profile() {
+function Profile({ onSignOut }) {
+  function handleClick() {
+    onSignOut();
+  }
+
   return (
     <div>
       <div className="main">
@@ -35,8 +39,11 @@ function Profile() {
             <button className="profile__button hover" aria-label="Редактировать профиль">Редактировать</button>
           </form>
           <Link
+            className="profile__link hover"
             to='/signin'
-            className="profile__link hover">Выйти из аккаунта
+            onClick={handleClick}
+          >
+            Выйти из аккаунта
           </Link>
         </div>
       </div>

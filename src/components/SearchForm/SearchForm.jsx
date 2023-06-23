@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './SearchForm.css'
 import loupe from '../../images/loupe.svg'
 
-function SearchForm() {
+function SearchForm({ onSearch }) {
+  const [searchText, setSearchText] = useState('');
+  function handleSubmit(e) {
+    e.preventDefault();
+    onSearch(searchText);
+  }
+
   return (
     <section className="search" aria-label="Поиск по фильмам">
       <div className="search__content">
-        <form className="search__form">
+        <form className="search__form"
+          onSubmit={handleSubmit}>
           <div>
             <input
               className="search__input"
               placeholder="Фильм"
               type="text"
-              minLength={3}
-              maxLength={60}
-              required />
+              minLength={0}
+              maxLength={50}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
             <img
               className="search__img"
               src={loupe}

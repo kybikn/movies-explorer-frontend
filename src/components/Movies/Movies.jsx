@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useBreakpoints } from '../../hooks/useWidth';
-import { beatfilmMovies, baseUrl } from '../../mockData/movies';
+// import { beatfilmMovies, baseUrl } from '../../mockData/movies';
 
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
+import moviesApi from '../../utils/api/MoviesApi';
+import { baseUrls } from '../../utils/constants';
 
-function Movies() {
+function Movies({ loggedIn }) {
+  const [allMovies, setAllMovies] = useState([]);
   const [movies, setMovies] = useState([]);
+  const [moviesToShow, setMoviesToShow] = useState([]);
   const [more, setMore] = useState(0);
 
   function formatMovies(moviesToFormat) {
@@ -21,12 +25,21 @@ function Movies() {
         trailerLink: movie.trailerLink,
         nameRU: movie.nameRU,
         nameEN: movie.nameEN,
-        image: baseUrl + movie.image.url,
-        thumbnail: baseUrl + movie.image.formats.thumbnail,
+        image: baseUrls.moviesApi + movie.image.url,
+        thumbnail: baseUrls.moviesApi + movie.image.formats.thumbnail,
         movieId: movie.id
       }
     })
     return formattedMovies
+  }
+
+  function handleSearch(text) {
+    if (!text) {
+      setMovies(allMovies)
+    } else {
+      const results = allMovies.filter(movie => movie.nameRU.toLowerCase().includes(text.toLowerCase()) || movie.nameEN.toLowerCase().includes(text.toLowerCase()))
+      setMovies(results);
+    }
   }
 
   let { s, m, l } = useBreakpoints({
@@ -45,15 +58,26 @@ function Movies() {
   }
 
   useEffect(() => {
-    const formattedMovies = formatMovies(beatfilmMovies);
-    const moviesToShow = formattedMovies.slice(0, cardsAmount * (1 + more));
-    setMovies(moviesToShow)
-  }, [cardsAmount, more]);
+    moviesApi.getInitialMovies()
+      .then((initialMovies) => {
+        const formattedMovies = formatMovies(initialMovies);
+        setAllMovies(formattedMovies);
+        setMovies(formattedMovies);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }, []);
+
+  useEffect(() => {
+    const moviesToShow = movies.slice(0, cardsAmount * (1 + more));
+    setMoviesToShow(moviesToShow);
+  }, [cardsAmount, more, movies]);
 
   return (
     <div>
-      <SearchForm />
-      <MoviesCardList movies={movies} />
+      <SearchForm onSearch={handleSearch} />
+      <MoviesCardList movies={moviesToShow} />
       <Preloader onClick={handleMore} />
     </div>
   )

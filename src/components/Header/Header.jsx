@@ -6,7 +6,7 @@ import NavigationMovies from '../NavigationMovies/NavigationMovies';
 import './Header.css';
 import logo from '../../images/logo.svg'
 
-function Header() {
+function Header({ loggedIn }) {
   const location = useLocation();
   const mainPage = location.pathname === '/';
 

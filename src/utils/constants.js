@@ -23,3 +23,9 @@ export const footerLinks = [
     link: 'https://github.com/kybikn',
   },
 ];
+
+export const baseUrls = {
+  // mainApi: 'https://api.movies-kybikn.nomoredomains.rocks',
+  mainApi: 'http://localhost:3000',
+  moviesApi: 'https://api.nomoreparties.co',
+};
