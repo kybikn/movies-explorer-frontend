@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import './CardButton.css';
@@ -7,7 +7,6 @@ import cross from '../../images/cross.svg'
 
 function CardButton({ like, onClick, }) {
   const isButtonActive = like;
-  // const [isButtonActive, setButtonActive] = useState(like);
 
   const location = useLocation();
 
@@ -15,7 +14,6 @@ function CardButton({ like, onClick, }) {
 
   function onButtonClick() {
     onClick()
-    // setButtonActive(!isButtonActive);
   }
   return (
     <>
@@ -30,6 +28,7 @@ function CardButton({ like, onClick, }) {
         )
         : (<button
           className="card__button card__button_delete hover"
+          onClick={onButtonClick}
           type="button"
         >
           <img src={cross} alt="Кнопка"></img>
