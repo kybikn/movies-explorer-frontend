@@ -4,7 +4,6 @@ import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext ';
 import ProtectedRouteElement from '../ProtectedRouteElement/ProtectedRouteElement';
 import auth from '../../utils/auth';
-// import api from '../../utils/mainApi/MainApi';
 import mainApi from '../../utils/api/MainApi';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -131,7 +130,6 @@ function App() {
           ? <Header
             onSignOut={handleSignOut}
             loggedIn={loggedIn}
-          // email={email}
           />
           : ''}
         <Routes>
@@ -147,16 +145,13 @@ function App() {
               loggedIn={loggedIn}
             />}
           ></Route>
-          {/* <Route
-            path='/movies'
-            element={<Movies
-              loggedIn={loggedIn}
-              movies={movies} />}>
-          </Route> */}
           <Route
             path='/saved-movies'
-            element={<SavedMovies />}>
-          </Route>
+            element={<ProtectedRouteElement
+              element={SavedMovies}
+              loggedIn={loggedIn}
+            />}
+          />
           <Route
             path='/profile'
             element={<ProtectedRouteElement
