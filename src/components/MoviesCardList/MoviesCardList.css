@@ -6,6 +6,15 @@
   flex-direction: column;
 }
 
+.gallery__loading-message {
+  color: white;
+  font-size: large;
+}
+
+.gallery__error-message {
+  color: white;
+  font-size: large;
+}
 .gallery__list {
   max-width: 1280px;
   margin: 0 auto;
