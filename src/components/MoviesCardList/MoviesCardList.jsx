@@ -1,15 +1,21 @@
 import React from 'react'
 
 import MoviesCard from '../MoviesCard/MoviesCard';
+import PreloaderRound from '../PreloaderRound/PreloaderRound';
 import './MoviesCardList.css';
 
 function MoviesCardList({ movies, isLoading, errorMessage, onClick }) {
   // if (isLoading) return (<div className="gallery__loading-message">Поиск...</div>)
   if (isLoading) return (
-    <div className="preloader__container">
-      <span className="preloader__round"></span>
-    </div>)
-  if (errorMessage) return (<div className="gallery__error-message">{errorMessage}</div>)
+    <PreloaderRound />
+  )
+  if (errorMessage) return (
+    <div className="gallery">
+      <div className="gallery__message">
+        <p>{errorMessage}</p>
+      </div>
+    </div>
+  )
   return (
     <section className="gallery" aria-label="Галерея карточек">
       <ul className="gallery__list">
