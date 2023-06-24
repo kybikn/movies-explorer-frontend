@@ -6,7 +6,7 @@ import notFoundImg from '../../images/notfound.jpg';
 import loadingImg from '../../images/loading-gif.gif';
 
 
-function MoviesCard({ nameRU, duration, imageUrl, type }) {
+function MoviesCard({ nameRU, duration, imageUrl, like, movieId, onClick }) {
   const [cardImage, setCardImage] = useState(loadingImg);
 
   async function loadImage(imgUrl) {
@@ -18,6 +18,10 @@ function MoviesCard({ nameRU, duration, imageUrl, type }) {
       setCardImage(notFoundImg);
     };
     image.src = imgUrl;
+  }
+
+  function handleClick() {
+    onClick(movieId)
   }
 
   useEffect(() => {
@@ -36,7 +40,7 @@ function MoviesCard({ nameRU, duration, imageUrl, type }) {
           src={cardImage}
           alt={nameRU}>
         </img>
-        <CardButton />
+        <CardButton like={like} onClick={handleClick} />
       </figure>
     </li>
   )

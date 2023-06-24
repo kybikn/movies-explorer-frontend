@@ -5,15 +5,17 @@ import './CardButton.css';
 import check from '../../images/check.svg'
 import cross from '../../images/cross.svg'
 
-function CardButton() {
-  const [isButtonActive, setButtonActive] = useState(false);
+function CardButton({ like, onClick, }) {
+  const isButtonActive = like;
+  // const [isButtonActive, setButtonActive] = useState(like);
 
   const location = useLocation();
 
   const moviesPage = location.pathname === '/movies';
 
   function onButtonClick() {
-    setButtonActive(!isButtonActive);
+    onClick()
+    // setButtonActive(!isButtonActive);
   }
   return (
     <>
