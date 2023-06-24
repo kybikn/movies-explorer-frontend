@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react'
-import { useBreakpoints } from '../../hooks/useWidth';
+import React, { useEffect, useState } from 'react'
 
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 import moviesApi from '../../utils/api/MoviesApi';
 import mainApi from '../../utils/api/MainApi';
+import { useBreakpoints } from '../../hooks/useWidth';
 import { baseUrls, errorMessages } from '../../utils/constants';
+import { formatMovies, filterMovies, addLikeToMovieInList, deleteLikeToMovieInList } from '../../utils/moviesUtils';
 
 function Movies() {
-
   const [movies, setMovies] = useState(
     () => {
       let moviesToShow = localStorage.getItem('movies');
       return moviesToShow ? JSON.parse(moviesToShow) : [];
     }
   );
-  const [more, setMore] = useState(0);//сколько доп рядов показывать
+  const [more, setMore] = useState(0); //сколько доп рядов показывать
   const [errorMessage, setErrorMessage] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [showOnlyShort, setShowOnlyShort] = useState(() => {
@@ -28,25 +28,8 @@ function Movies() {
     let searchText = localStorage.getItem('searchText');
     return searchText ? searchText : '';
   });
-
-  function formatMovies(moviesToFormat) {
-    const formattedMovies = moviesToFormat.map(movie => {
-      return {
-        country: movie.country,
-        director: movie.director,
-        duration: movie.duration,
-        year: movie.year,
-        description: movie.description,
-        trailerLink: movie.trailerLink,
-        nameRU: movie.nameRU,
-        nameEN: movie.nameEN,
-        image: baseUrls.moviesApi + movie.image.url,
-        thumbnail: baseUrls.moviesApi + movie.image.formats.thumbnail,
-        movieId: movie.id
-      }
-    })
-    return formattedMovies
-  }
+  const [noMore, setNoMore] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(true);
 
   let { s, m, l } = useBreakpoints({
     s: { min: 0, max: 767 },
@@ -69,23 +52,21 @@ function Movies() {
     } else {
       setIsLoading(true);
       Promise.all([moviesApi.getInitialMovies(), mainApi.getMovies()])
-        // .then(([initialMovies, initialCards])
-        // moviesApi.getInitialMovies()
-        // .then((initialMovies) => {
         .then(([initialMovies, savedMovies]) => {
-          const formattedMovies = formatMovies(initialMovies);
-          let results = formattedMovies.filter(movie => movie.nameRU.toLowerCase().includes(searchText.toLowerCase()) || movie.nameEN.toLowerCase().includes(searchText.toLowerCase()));
-          if (results.length === 0) { setErrorMessage(errorMessages.text); return };
+          const formattedMovies = formatMovies(initialMovies, baseUrls.moviesApi);
+          let results = filterMovies(formattedMovies, searchText);
+          if (results.length === 0) { setErrorMessage(errorMessages.notFound); return };
+
+          // Обогащение лайками
           const savedIds = savedMovies.map(movie => movie.movieId);
-          console.log('savedIds:', savedIds)
           const resultwWithLikes = results.map(movie => {
-            // console.log('movie.movieId:', movie.movieId);
             movie.like = savedIds.includes(movie.movieId) ? true : false;
             return movie
           })
           setSearchText(searchText);
           setErrorMessage('');
           setMovies(resultwWithLikes);
+          setMore(0);
         })
         .catch((err) => {
           console.log(err);
@@ -98,36 +79,17 @@ function Movies() {
   }
 
   function toggleLike(id) {
-    console.log("сработал toggleLike, id:", id)
     let movie = movies.find(movie => movie.movieId === id);
-    console.log("movie в toggleLike:", movie);
     if (movie.like) {
       mainApi.deleteMovie(id).then(() => {
-        console.log('внутри then(deleted):')
-        const updateMovies = movies.map(movie => {
-          if (movie.movieId === id) {
-            const newMovie = JSON.parse(JSON.stringify(movie));
-            newMovie.like = false;
-            return newMovie
-          }
-          return movie
-        })
-        console.log('updateMovies(deleted):', updateMovies)
+        const updateMovies = deleteLikeToMovieInList(movies, id);
         setMovies(updateMovies);
       }).catch((e) => console.log(e));
     } else {
       mainApi.createMovie(movie)
         .then(
           () => {
-            const updateMovies = movies.map(movie => {
-              if (movie.movieId === id) {
-                const newMovie = JSON.parse(JSON.stringify(movie));
-                newMovie.like = true;
-                return newMovie
-              }
-              return movie
-            })
-            console.log('updateMovies(added):', updateMovies)
+            const updateMovies = addLikeToMovieInList(movies, id)
             setMovies(updateMovies);
           }
         ).catch((e) => console.log(e));
@@ -136,7 +98,6 @@ function Movies() {
 
   useEffect(() => {
     localStorage.setItem('showOnlyShort', JSON.stringify(showOnlyShort));
-
   }, [showOnlyShort])
 
   useEffect(() => {
@@ -150,15 +111,23 @@ function Movies() {
   useEffect(() => {
     const filteredMovies = showOnlyShort ? movies.filter(movie => movie.duration <= 40) : movies;
     const moviesToShow = filteredMovies.slice(0, cardsAmount + (toAddMore * more));
+    if (moviesToShow.length === filteredMovies.length) { setNoMore(true) } else setNoMore(false)
     setMoviesToShow(moviesToShow);
   }, [cardsAmount, toAddMore, more, movies, showOnlyShort]);
 
-  return (
 
+  useEffect(() => {
+    if (isLoading || moviesToShow.length === 0 || moviesToShow.length === movies.length || errorMessage || noMore) {
+      setShowPreloader(false)
+    } else setShowPreloader(true);
+  }, [errorMessage, isLoading, movies.length, moviesToShow.length, noMore]
+  )
+
+  return (
     <div>
       <SearchForm onSearch={handleSearch} setShowOnlyShort={setShowOnlyShort} initialText={searchText} showOnlyShort={showOnlyShort} />
       <MoviesCardList movies={moviesToShow} errorMessage={errorMessage} isLoading={isLoading} onClick={toggleLike} />
-      {(isLoading || moviesToShow.length === 0 || moviesToShow.length === movies.length || errorMessage) ? null : <Preloader onClick={handleMore} />}
+      {showPreloader ? <Preloader onClick={handleMore} /> : null}
     </div>
   )
 }
