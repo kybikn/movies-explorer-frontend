@@ -23,13 +23,6 @@ function App() {
   const [infoSuccess, setInfoSuccess] = useState(false);
   const [infoMessage, setInfoMessage] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  // const [email, setEmail] = useState('');
-  // const [movies, setMovies] = useState([]);
-  // const [currentUser, setCurrentUser] = useState({
-  //   email: 'pochta@yandex.ru',
-  //   password: '123456',
-  // });
 
   const navigate = useNavigate();
 
@@ -39,21 +32,6 @@ function App() {
   const moviesPages = location.pathname === '/movies'
     || location.pathname === '/saved-movies';
   const profilePage = location.pathname === '/profile';
-
-  function handleUpdateUser({ name, email }) {
-    setIsLoading(true);
-    mainApi
-      .editProfile({ name, email })
-      .then((profile) => {
-        setCurrentUser(profile);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }
 
   function handleRegister({ name, email, password }) {
     auth.register(name, email, password)
@@ -73,6 +51,7 @@ function App() {
         console.log(err);
       });
   }
+
 
   function handleLogin({ email, password }) {
     auth.login(email, password)
@@ -95,8 +74,8 @@ function App() {
     auth.logout()
       .then(() => {
         setLoggedIn(false);
-        // setEmail('');
         setCurrentUser(null);
+        if (!mainPage) navigate("/", { replace: true });
       })
       .catch((err) => {
         setInfoTooltipOpen(true);
@@ -117,11 +96,11 @@ function App() {
         if (payload) {
           setLoggedIn(true);
           setCurrentUser(payload);
-          navigate("/movies", { replace: true })
+          if (mainPage) navigate("/movies", { replace: true });
         }
       })
       .catch((err) => { console.log(err) });
-  }, []);
+  }, [mainPage, navigate]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -157,7 +136,8 @@ function App() {
             element={<ProtectedRouteElement
               element={Profile}
               loggedIn={loggedIn}
-              isLoading={isLoading}
+              setCurrentUser={setCurrentUser}
+              onSignOut={handleSignOut}
             />}
           />
           <Route
