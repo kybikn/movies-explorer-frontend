@@ -29,3 +29,11 @@ export const baseUrls = {
   mainApi: 'http://localhost:3000',
   moviesApi: 'https://api.nomoreparties.co',
 };
+
+export const errorMessages = {
+  text: 'Нужно ввести ключевое слово',
+  network: `Во время запроса произошла ошибка.
+  Возможно, проблема с соединением или сервер недоступен.
+  Подождите немного и попробуйте ещё раз`,
+  notFound: 'Ничего не найдено',
+};
