@@ -1,8 +1,3 @@
-// createUser,
-// login,
-// logout,
-// getMyProfile,
-// editProfile,
 import { baseUrls } from './constants';
 
 class AuthApi {
@@ -12,7 +7,6 @@ class AuthApi {
     this._loginUrl = `${baseUrl}/signin`;
     this._registerUrl = `${baseUrl}/signup`;
     this._logoutUrl = `${baseUrl}/signout`;
-    // checktoken /users/me
   }
 
   _handleResponse(response) {
@@ -47,7 +41,7 @@ class AuthApi {
 
   logout = () => {
     return fetch(this._logoutUrl, {
-      method: 'GET', // POST?
+      method: 'POST',
       credentials: 'include',
       headers: this._headers,
     }).then(this._handleResponse);
