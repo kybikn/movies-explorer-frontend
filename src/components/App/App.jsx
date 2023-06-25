@@ -22,7 +22,7 @@ function App() {
   const [isInfoTooltipOpen, setInfoTooltipOpen] = useState(false);
   const [infoSuccess, setInfoSuccess] = useState(false);
   const [infoMessage, setInfoMessage] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState();
 
   const navigate = useNavigate();
 
@@ -122,7 +122,7 @@ function App() {
       .catch((err) => {
         console.log(err)
       });
-  }, [mainPage, navigate]);
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
