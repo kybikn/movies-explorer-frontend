@@ -5,7 +5,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext ';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import './Profile.css'
 
-function Profile({ onSignOut, setCurrentUser, children, onProfile, onUpdateUser }) {
+function Profile({ onSignOut, children, onProfile }) {
   const { values, errors, isValid, setValues, handleChange } = useFormAndValidation();
   const userProfile = useContext(CurrentUserContext);
   const [isEditing, setIsEditing] = useState(false);

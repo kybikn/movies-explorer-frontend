@@ -13,16 +13,22 @@ function Movies() {
   const [movies, setMovies] = useState(
     () => {
       let moviesToShow = localStorage.getItem('movies');
-      return moviesToShow ? JSON.parse(moviesToShow) : [];
+      return moviesToShow
+        ? JSON.parse(moviesToShow)
+        : [];
     }
   );
   const [showOnlyShort, setShowOnlyShort] = useState(() => {
     let showOnlyShort = localStorage.getItem('showOnlyShort');
-    return showOnlyShort ? JSON.parse(showOnlyShort) : false;
+    return showOnlyShort
+      ? JSON.parse(showOnlyShort)
+      : false;
   });
   const [searchText, setSearchText] = useState(() => {
     let searchText = localStorage.getItem('searchText');
-    return searchText ? searchText : '';
+    return searchText
+      ? searchText
+      : '';
   });
   const [more, setMore] = useState(0); //сколько доп рядов показывать
   const [errorMessage, setErrorMessage] = useState();

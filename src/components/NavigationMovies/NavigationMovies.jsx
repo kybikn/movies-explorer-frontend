@@ -73,7 +73,6 @@ function NavigationMovies() {
   return (
     <div>
       <div className={`burger ${isBurgerOpen && 'burger_active'} hover`}
-        isOpen={isBurgerOpen}
         onClick={handleBurgerClick}>
         <span className="burger__line burger__line_up"></span>
         <span className="burger__line burger__line_middle"></span>
