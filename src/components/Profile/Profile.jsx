@@ -4,43 +4,25 @@ import { Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext ';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 import './Profile.css'
-import mainApi from '../../utils/api/MainApi';
 
-function Profile({ onSignOut, setCurrentUser, onUpdateUser }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const { values, errors, isValid, setValues, handleChange, resetForm } = useFormAndValidation();
+function Profile({ onSignOut, setCurrentUser, children, onProfile, onUpdateUser }) {
+  const { values, errors, isValid, setValues, handleChange } = useFormAndValidation();
   const userProfile = useContext(CurrentUserContext);
+  const [isEditing, setIsEditing] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [valuesChanged, setValuesChanged] = useState(false);
-  const [updateResult, setUpdateResult] = useState(null);
   const nameRef = useRef(null);
   const emailRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSending(true);
-    mainApi
-      .editProfile({
-        name: values.name,
-        email: values.email
-      })
-      .then((profile) => {
-        setCurrentUser(profile);
-        setUpdateResult(
-          {
-            success: true,
-            message: "Профиль успешно обновлен! X"
-          });
-        setIsEditing(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setUpdateResult({ success: false, message: "При обновлении профиля произошла ошибка. X" });
-      })
-      .finally(() => {
-        setIsSending(false);
-      });
-    resetForm();
+    onProfile({
+      name: values.name,
+      email: values.email,
+      callback: () => { setIsSending(false); setIsEditing(false); }
+    })
+
   }
 
   function handleEdit() {
@@ -91,7 +73,7 @@ function Profile({ onSignOut, setCurrentUser, onUpdateUser }) {
                 disabled={!isEditing}
               />
             </fieldset>
-            <span className="auth__error">{errors['name'] || ''}</span>
+            <span className="auth-error">{errors['name'] || ''}</span>
             <fieldset className="profile__fieldset">
               <label className="profile__label">E-mail</label >
               <input
@@ -108,16 +90,11 @@ function Profile({ onSignOut, setCurrentUser, onUpdateUser }) {
                 disabled={!isEditing}
               />
             </fieldset>
-            <span className="auth__error">{errors['email'] || ''}</span>
-            <div
-              onClick={() => setUpdateResult(null)}
-              className={"profile__update-status" + ((updateResult && updateResult.success)
-                ? " profile__update-status_success"
-                : " profile__update-error")}>{updateResult?.message || ''}
-            </div>
+            <span className="auth-error">{errors['email'] || ''}</span>
+            {children}
             {isEditing
               ? (<button
-                className="auth__button hover"
+                className="auth-button auth-button_type_profile hover"
                 aria-label="Сохранить"
                 type="submit"
                 onClick={(e) => setTimeout(handleSubmit(e), 50)}

@@ -33,6 +33,27 @@ function App() {
     || location.pathname === '/saved-movies';
   const profilePage = location.pathname === '/profile';
 
+  const handleProfile = ({ name, email, callback }) => {
+    mainApi
+      .editProfile({
+        name,
+        email
+      })
+      .then((profile) => {
+        setCurrentUser(profile);
+        setInfoTooltipOpen(true);
+        setInfoSuccess(true);
+        setInfoMessage(`Профиль успешно обновлен!`);
+      })
+      .catch((err) => {
+        setInfoTooltipOpen(true);
+        setInfoSuccess(false);
+        setInfoMessage(`При обновлении профиля произошла ошибка.`)
+        console.log(err);
+      })
+      .finally(() => callback());
+  }
+
   function handleRegister({ name, email, password }) {
     auth.register(name, email, password)
       .then((payload) => {
@@ -96,10 +117,11 @@ function App() {
         if (payload) {
           setLoggedIn(true);
           setCurrentUser(payload);
-          if (mainPage) navigate("/movies", { replace: true });
         }
       })
-      .catch((err) => { console.log(err) });
+      .catch((err) => {
+        console.log(err)
+      });
   }, [mainPage, navigate]);
 
   return (
@@ -107,7 +129,6 @@ function App() {
       <div className="page">
         {mainPage || moviesPages || profilePage
           ? <Header
-            onSignOut={handleSignOut}
             loggedIn={loggedIn}
           />
           : ''}
@@ -138,6 +159,7 @@ function App() {
               loggedIn={loggedIn}
               setCurrentUser={setCurrentUser}
               onSignOut={handleSignOut}
+              onProfile={handleProfile}
             />}
           />
           <Route

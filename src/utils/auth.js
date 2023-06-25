@@ -21,12 +21,11 @@ class AuthApi {
     }
   }
 
-  // register
-  createUser = (email, password, name) => {
+  register = (name, email, password) => {
     return fetch(this._registerUrl, {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify({ email, password, name }),
+      body: JSON.stringify({ name, email, password }),
     }).then(this._handleResponse);
   };
 
