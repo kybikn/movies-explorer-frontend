@@ -1,10 +1,10 @@
 import React from 'react'
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
+import Logo from '../Logo/Logo';
 import Navigation from '../Navigation/Navigation';
 import NavigationMovies from '../NavigationMovies/NavigationMovies';
 import './Header.css';
-import logo from '../../images/logo.svg'
 
 function Header() {
   const location = useLocation();
@@ -13,13 +13,7 @@ function Header() {
   return (
     <header className={`header ${mainPage ? 'header_main' : 'header_movies'}`}>
       <div className="header__container">
-        <Link to='/'>
-          <img
-            className="header__img hover"
-            src={logo}
-            alt="Логотип">
-          </img>
-        </Link>
+        <Logo />
         {mainPage ? <Navigation /> : <NavigationMovies />}
       </div>
     </header >

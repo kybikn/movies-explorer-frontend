@@ -1,20 +1,14 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './AuthForm.css'
-import logo from '../../images/logo.svg'
+import Logo from '../Logo/Logo';
 
 function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text, link, values, errors, isValid }) {
   return (
     <div>
       <div className="auth">
-        <Link to='/'>
-          <img
-            className="header__img hover"
-            src={logo}
-            alt="Логотип">
-          </img>
-        </Link>
+        <Logo />
         <h2 className="auth__title">{title}</h2>
         <form
           className="auth__form"
@@ -35,7 +29,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                   maxLength={40}
                   onChange={onChange}
                   required />
-                <span className="auth__error">{errors['name'] || ''}</span>
+                <span className="auth-error">{errors['name'] || ''}</span>
               </label >
               : ''}
             <label className="auth__label">E-mail
@@ -49,7 +43,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 maxLength={40}
                 onChange={onChange}
                 required />
-              <span className="auth__error">{errors['email'] || ''}</span>
+              <span className="auth-error">{errors['email'] || ''}</span>
             </label >
             <label className="auth__label">Пароль
               <input
@@ -62,10 +56,10 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 maxLength={20}
                 onChange={onChange}
                 required />
-              <span className="auth__error">{errors['password'] || ''}</span>
+              <span className="auth-error">{errors['password'] || ''}</span>
             </label >
             <button
-              className="auth__button hover"
+              className="auth-button hover"
               type="submit"
               disabled={!isValid}
               area-label={btnText}
