@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 import './NotFound.css';
 
 function NotFound() {
+  useEffect(() => {
+    document.title = "Movies - 404";
+  }, []);
+
   return (
     <div>
       <div className="not-found">

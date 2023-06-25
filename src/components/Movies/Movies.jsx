@@ -116,6 +116,10 @@ function Movies() {
   }
 
   useEffect(() => {
+    document.title = "Movies - фильмы";
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('showOnlyShort', JSON.stringify(showOnlyShort));
   }, [showOnlyShort])
 

@@ -34,6 +34,10 @@ function Profile({ onSignOut, children, onProfile }) {
     })
   }
 
+  useEffect(() => {
+    document.title = "Movies - аккаунт";
+  }, []);
+
   useEffect(() => { nameRef.current.focus(); }, [isEditing])
 
   function handleInputChange(e) {

@@ -8,6 +8,10 @@ function Login({ onLogin }) {
   const { values, errors, isValid, setValues, handleChange, resetForm } = useFormAndValidation();
 
   useEffect(() => {
+    document.title = "Movies - войти";
+  }, []);
+
+  useEffect(() => {
     resetForm();
   }, [resetForm]);
 

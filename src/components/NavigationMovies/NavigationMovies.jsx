@@ -19,22 +19,22 @@ function NavigationMovies() {
 
   function handleMain(event) {
     event.preventDefault();
-    navigate('/', { replace: true })
+    navigate('/')
   }
 
   function handleMovies(event) {
     event.preventDefault();
-    navigate('/movies', { replace: true })
+    navigate('/movies')
   }
 
   function handleSavedMovies(event) {
     event.preventDefault();
-    navigate('/saved-movies', { replace: true })
+    navigate('/saved-movies')
   }
 
   function handleProfile(event) {
     event.preventDefault();
-    navigate('/profile', { replace: true })
+    navigate('/profile')
   }
 
   function handleBurgerClick() {

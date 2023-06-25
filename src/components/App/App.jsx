@@ -62,7 +62,7 @@ function App() {
           setInfoTooltipOpen(true);
           setInfoSuccess(true);
           setInfoMessage(ERRORMESSAGES.success);
-          navigate('/signin', { replace: true });
+          navigate('/signin');
         }
       })
       .catch((err) => {
@@ -80,7 +80,7 @@ function App() {
         if (payload.user) {
           setCurrentUser(payload.user);
           setLoggedIn(true);
-          navigate('/movies', { replace: true });
+          navigate('/movies');
         }
       })
       .catch((err) => {
@@ -140,6 +140,7 @@ function App() {
           </Route>
           <Route
             path='/movies'
+            title='Фильмы'
             element={<ProtectedRouteElement
               element={Movies}
               loggedIn={loggedIn}
@@ -147,6 +148,7 @@ function App() {
           ></Route>
           <Route
             path='/saved-movies'
+            title='Сохраненные фильмы'
             element={<ProtectedRouteElement
               element={SavedMovies}
               loggedIn={loggedIn}
@@ -154,6 +156,7 @@ function App() {
           />
           <Route
             path='/profile'
+            title='Профиль'
             element={<ProtectedRouteElement
               element={Profile}
               loggedIn={loggedIn}

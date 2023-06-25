@@ -34,6 +34,9 @@ function SavedMovies() {
         console.log(err);
       })
   }
+  useEffect(() => {
+    document.title = "Movies - сохраненные фильмы";
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
