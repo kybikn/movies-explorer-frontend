@@ -120,6 +120,7 @@ function App() {
         }
       })
       .catch((err) => {
+        setLoggedIn(false);
         console.log(err)
       });
   }, []);
