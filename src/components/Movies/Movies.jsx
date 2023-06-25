@@ -6,7 +6,7 @@ import Preloader from '../Preloader/Preloader';
 import moviesApi from '../../utils/api/MoviesApi';
 import mainApi from '../../utils/api/MainApi';
 import { useBreakpoints } from '../../hooks/useWidth';
-import { baseUrls, errorMessages } from '../../utils/constants';
+import { BASEURLS, ERRORMESSAGES } from '../../utils/constants';
 import { formatMovies, filterMovies, addLikeToMovieInList, deleteLikeToMovieInList } from '../../utils/moviesUtils';
 
 function Movies() {
@@ -55,15 +55,15 @@ function Movies() {
 
   function handleSearch(searchText) {
     if (!searchText || !searchText.trim()) {
-      setErrorMessage(errorMessages.text)
+      setErrorMessage(ERRORMESSAGES.text)
     } else {
       setIsLoading(true);
       Promise.all([moviesApi.getInitialMovies(), mainApi.getMovies()])
         .then(([initialMovies, savedMovies]) => {
-          const formattedMovies = formatMovies(initialMovies, baseUrls.moviesApi);
+          const formattedMovies = formatMovies(initialMovies, BASEURLS.moviesApi);
           let results = filterMovies(formattedMovies, searchText);
           if (results.length === 0) {
-            setErrorMessage(errorMessages.notFound);
+            setErrorMessage(ERRORMESSAGES.notFound);
             return
           };
 
@@ -82,7 +82,7 @@ function Movies() {
         })
         .catch((err) => {
           console.log(err);
-          setErrorMessage(errorMessages.network);
+          setErrorMessage(ERRORMESSAGES.network);
         })
         .finally(() => {
           setIsLoading(false);

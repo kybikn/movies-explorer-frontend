@@ -1,4 +1,4 @@
-import { baseUrls } from '../constants';
+import { BASEURLS } from '../constants';
 
 class MoviesApi {
   constructor({ baseUrl, headers }) {
@@ -30,7 +30,7 @@ class MoviesApi {
 
 // ----- Инстанс класса Api --------
 const moviesApi = new MoviesApi({
-  baseUrl: baseUrls.moviesApi,
+  baseUrl: BASEURLS.moviesApi,
   headers: {
     'Content-Type': 'application/json',
   },

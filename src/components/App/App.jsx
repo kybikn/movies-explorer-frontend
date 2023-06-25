@@ -15,10 +15,11 @@ import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 import Footer from '../Footer/Footer';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
+import { ERRORMESSAGES } from '../../utils/constants';
 import './App.css';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(null);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = useState(false);
   const [infoSuccess, setInfoSuccess] = useState(false);
   const [infoMessage, setInfoMessage] = useState('');
@@ -43,12 +44,12 @@ function App() {
         setCurrentUser(profile);
         setInfoTooltipOpen(true);
         setInfoSuccess(true);
-        setInfoMessage(`Профиль успешно обновлен!`);
+        setInfoMessage(ERRORMESSAGES.editProfileSuccess);
       })
       .catch((err) => {
         setInfoTooltipOpen(true);
         setInfoSuccess(false);
-        setInfoMessage(`При обновлении профиля произошла ошибка.`)
+        setInfoMessage(ERRORMESSAGES.profileError)
         console.log(err);
       })
       .finally(() => callback());
@@ -60,15 +61,14 @@ function App() {
         if (payload.user) {
           setInfoTooltipOpen(true);
           setInfoSuccess(true);
-          setInfoMessage(`Вы успешно зарегистрировались!`);
+          setInfoMessage(ERRORMESSAGES.success);
           navigate('/signin', { replace: true });
         }
       })
       .catch((err) => {
         setInfoTooltipOpen(true);
         setInfoSuccess(false);
-        setInfoMessage(`Что-то пошло не так!
-    Попробуйте ещё раз.`)
+        setInfoMessage(ERRORMESSAGES.error)
         console.log(err);
       });
   }
@@ -78,6 +78,7 @@ function App() {
     auth.login(email, password)
       .then((payload) => {
         if (payload.user) {
+          setCurrentUser(payload.user);
           setLoggedIn(true);
           navigate('/movies', { replace: true });
         }
@@ -85,8 +86,7 @@ function App() {
       .catch((err) => {
         setInfoTooltipOpen(true);
         setInfoSuccess(false);
-        setInfoMessage(`Что-то пошло не так!
-      Попробуйте ещё раз.`)
+        setInfoMessage(ERRORMESSAGES.error)
         console.log(err);
       });
   }
@@ -101,8 +101,7 @@ function App() {
       .catch((err) => {
         setInfoTooltipOpen(true);
         setInfoSuccess(false);
-        setInfoMessage(`Что-то пошло не так!
-    Попробуйте ещё раз.`)
+        setInfoMessage(ERRORMESSAGES.error)
         console.log(err);
       })
   }
@@ -115,8 +114,8 @@ function App() {
     mainApi.getProfile()
       .then((payload) => {
         if (payload) {
-          setLoggedIn(true);
           setCurrentUser(payload);
+          setLoggedIn(true);
         }
       })
       .catch((err) => {
