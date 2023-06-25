@@ -64,7 +64,7 @@
   color: var(--color-light);
   cursor: pointer;
 }
-.profile__update-status {
+/* .profile__update-status {
   color: var(--color-error);
   font-size: 20px;
   cursor: pointer;
@@ -77,7 +77,7 @@
 .profile__update-status_success {
   color: var(--color-action);
   font-size: 20px;
-}
+} */
 
 .profile__button {
   width: 100%;

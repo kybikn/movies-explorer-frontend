@@ -98,32 +98,3 @@ const mainApi = new MainApi({
 });
 
 export default mainApi;
-
-// добавление лайка
-// addLike(cardId) {
-//   const likeCardsUrl = `${this._cardsUrl}/${cardId}/likes`;
-//   return fetch(likeCardsUrl, {
-//     headers: this._headers,
-//     method: 'PUT',
-//     credentials: 'include',
-//   }).then(this._handleResponse);
-// }
-
-// удаление лайка
-// deleteLike(cardId) {
-//   const likeCardsUrl = `${this._cardsUrl}/${cardId}/likes`;
-//   return fetch(likeCardsUrl, {
-//     headers: this._headers,
-//     method: 'DELETE',
-//     credentials: 'include',
-//   }).then(this._handleResponse);
-// }
-
-// изменение статуса лайка на требуемый
-// changeLikeCardStatus(cardId, like) {
-//   if (like) {
-//     return this.addLike(cardId);
-//   } else {
-//     return this.deleteLike(cardId);
-//   }
-// }

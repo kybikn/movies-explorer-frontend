@@ -29,14 +29,20 @@ function SavedMovies() {
         const moviesInStorage = JSON.parse(localStorage.getItem('movies'));
         const moviesNoLike = deleteLikeToMovieInList(moviesInStorage, id)
         localStorage.setItem('movies', JSON.stringify(moviesNoLike))
-      }).catch((e) => console.log(e));
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   useEffect(() => {
     setIsLoading(true);
     mainApi.getMovies()
       .then((formattedMovies) => {
-        if (formattedMovies.length === 0) { setErrorMessage(errorMessages.notFound); return };
+        if (formattedMovies.length === 0) {
+          setErrorMessage(errorMessages.notFound);
+          return
+        };
         setErrorMessage('');
         setAllMovies(formattedMovies);
         setMovies(formattedMovies);
@@ -50,16 +56,30 @@ function SavedMovies() {
   }, []);
 
   useEffect(() => {
-    const filteredMovies = !searchText ? allMovies : filterMovies(allMovies, searchText);
-    const moviesToShow = showOnlyShort ? filteredMovies.filter(movie => movie.duration <= 40) : filteredMovies;
-    setErrorMessage(moviesToShow.length ? '' : errorMessages.notFound);
+    const filteredMovies = !searchText
+      ? allMovies
+      : filterMovies(allMovies, searchText);
+    const moviesToShow = showOnlyShort
+      ? filteredMovies.filter(movie => movie.duration <= 40)
+      : filteredMovies;
+    setErrorMessage(moviesToShow.length
+      ? ''
+      : errorMessages.notFound);
     setMoviesToShow(moviesToShow);
   }, [allMovies, movies, showOnlyShort, searchText]);
 
   return (
     <div>
-      <SearchForm onSearch={handleSearch} setShowOnlyShort={setShowOnlyShort} initialText={searchText} showOnlyShort={showOnlyShort} />
-      <MoviesCardList movies={moviesToShow} errorMessage={errorMessage} isLoading={isLoading} onClick={handleDelete} />
+      <SearchForm
+        onSearch={handleSearch}
+        setShowOnlyShort={setShowOnlyShort}
+        initialText={searchText}
+        showOnlyShort={showOnlyShort} />
+      <MoviesCardList
+        movies={moviesToShow}
+        errorMessage={errorMessage}
+        isLoading={isLoading}
+        onClick={handleDelete} />
       <SavedDevider />
     </div>
   )
