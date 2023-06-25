@@ -6,7 +6,7 @@ import Navigation from '../Navigation/Navigation';
 import NavigationMovies from '../NavigationMovies/NavigationMovies';
 import './Header.css';
 
-function Header() {
+function Header({ loggedIn }) {
   const location = useLocation();
   const mainPage = location.pathname === '/';
 
@@ -14,7 +14,7 @@ function Header() {
     <header className={`header ${mainPage ? 'header_main' : 'header_movies'}`}>
       <div className="header__container">
         <Logo />
-        {mainPage ? <Navigation /> : <NavigationMovies />}
+        {loggedIn ? <NavigationMovies /> : <Navigation />}
       </div>
     </header >
   )
