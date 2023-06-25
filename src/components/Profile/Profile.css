@@ -52,7 +52,7 @@
 }
 
 .profile__input {
-  padding: 0;
+  padding: 0 10px;
   text-align: right;
   border: none;
   font-family: var(--font-primary);
@@ -64,20 +64,6 @@
   color: var(--color-light);
   cursor: pointer;
 }
-/* .profile__update-status {
-  color: var(--color-error);
-  font-size: 20px;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-  height: 50px;
-}
-
-.profile__update-status_success {
-  color: var(--color-action);
-  font-size: 20px;
-} */
 
 .profile__button {
   width: 100%;

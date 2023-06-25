@@ -172,8 +172,8 @@
   }
 
   .auth__input {
+    padding: 0 10px;
     width: 260px;
-    padding: 0;
   }
 
   .auth-button {

@@ -188,6 +188,7 @@ input:checked + .slider:before {
   }
 
   .search__input {
+    padding: 0 0 0 13px;
     width: 300px;
   }
 
@@ -197,9 +198,9 @@ input:checked + .slider:before {
     line-height: 20px;
   }
 
-  /* .search__input:focus {
+  .search__input:focus {
     padding: 0 0 0 10px;
-  } */
+  }
 
   .search__img {
     display: none;
