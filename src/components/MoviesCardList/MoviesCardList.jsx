@@ -26,6 +26,7 @@ function MoviesCardList({ movies, isLoading, errorMessage, onClick }) {
             nameRU={movie.nameRU}
             duration={movie.duration}
             imageUrl={movie.image}
+            trailerLink={movie.trailerLink}
             like={movie.like || false}
             onClick={onClick}
           />)}

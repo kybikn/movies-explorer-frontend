@@ -4,9 +4,10 @@ import CardButton from '../CardButton/CardButton';
 import './MoviesCard.css';
 import notFoundImg from '../../images/notfound.jpg';
 import loadingImg from '../../images/loading-gif.gif';
+import { Link } from 'react-router-dom';
 
 
-function MoviesCard({ nameRU, duration, imageUrl, like, movieId, onClick }) {
+function MoviesCard({ nameRU, duration, trailerLink, imageUrl, like, movieId, onClick }) {
   const [cardImage, setCardImage] = useState(loadingImg);
 
   async function loadImage(imgUrl) {
@@ -35,14 +36,21 @@ function MoviesCard({ nameRU, duration, imageUrl, like, movieId, onClick }) {
           <h3 className="card__title">{nameRU}</h3>
           <p className="card__text">{duration} минут</p>
         </figcaption>
-        <img
-          className="card__img"
-          src={cardImage}
-          alt={nameRU}>
-        </img>
-        <CardButton like={like} onClick={handleClick} />
+        <Link
+          to={trailerLink}
+          target="_blank">
+          <img
+            className="card__img"
+            src={cardImage}
+            alt={nameRU}
+          >
+          </img>
+        </Link>
+        <CardButton
+          like={like}
+          onClick={handleClick} />
       </figure>
-    </li>
+    </li >
   )
 }
 
