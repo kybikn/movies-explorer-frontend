@@ -5,7 +5,6 @@ import PreloaderRound from '../PreloaderRound/PreloaderRound';
 import './MoviesCardList.css';
 
 function MoviesCardList({ movies, isLoading, errorMessage, onClick }) {
-  // if (isLoading) return (<div className="gallery__loading-message">Поиск...</div>)
   if (isLoading) return (
     <PreloaderRound />
   )
