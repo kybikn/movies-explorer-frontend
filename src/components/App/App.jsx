@@ -12,7 +12,7 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
-import NotFound from '../NotFound/NotFound';
+// import NotFound from '../NotFound/NotFound';
 import Footer from '../Footer/Footer';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import { ERRORMESSAGES } from '../../utils/constants';
@@ -96,7 +96,8 @@ function App() {
       .then(() => {
         setLoggedIn(false);
         setCurrentUser(null);
-        if (!mainPage) navigate("/", { replace: true });
+        // if (!mainPage) navigate("/", { replace: true });
+        if (!mainPage) navigate("/movies", { replace: true });
       })
       .catch((err) => {
         setInfoTooltipOpen(true);
@@ -147,15 +148,30 @@ function App() {
           ></Route>
           <Route
             path='/saved-movies'
+            element={<SavedMovies
+              loggedIn={loggedIn}
+            />}
+          />
+          {/* <Route
+            path='/saved-movies'
             element={<ProtectedRouteElement
               element={SavedMovies}
               loggedIn={loggedIn}
             />}
-          />
-          <Route
+          /> */}
+          {/* <Route
             path='/profile'
             element={<ProtectedRouteElement
               element={Profile}
+              loggedIn={loggedIn}
+              setCurrentUser={setCurrentUser}
+              onSignOut={handleSignOut}
+              onProfile={handleProfile}
+            />}
+          /> */}
+          <Route
+            path='/profile'
+            element={<Profile
               loggedIn={loggedIn}
               setCurrentUser={setCurrentUser}
               onSignOut={handleSignOut}
@@ -168,10 +184,10 @@ function App() {
           <Route
             path='/signin'
             element={<Login onLogin={handleLogin} />} />
-          <Route
+          {/* <Route
             path='*'
             element={<NotFound />}>
-          </Route>
+          </Route> */}
         </Routes>
         {mainPage || moviesPages ? < Footer /> : ''}
         <InfoTooltip

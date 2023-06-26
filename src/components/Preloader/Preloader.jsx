@@ -9,7 +9,9 @@ const Preloader = ({ onClick }) => {
         className="preloader__button hover"
         onClick={onClick}
         area-label="Показать ещё фильмы"
-      >Ещё</button>
+      >
+        {/* Ещё */}
+      </button>
     </div>
   )
 };

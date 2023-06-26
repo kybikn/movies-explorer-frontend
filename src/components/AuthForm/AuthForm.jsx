@@ -66,6 +66,59 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
             >{btnText}
             </button>
           </fieldset>
+
+          {/* <fieldset className="auth__box">
+            {formName === 'signup'
+              ?
+              <label className="auth__label">Имя
+                <input
+                  className="auth__input"
+                  value={values.name || ''}
+                  name="name"
+                  type="text"
+                  placeholder="Имя"
+                  minLength={3}
+                  maxLength={40}
+                  onChange={onChange}
+                  required />
+                <span className="auth-error">{errors['name'] || ''}</span>
+              </label >
+              : ''}
+            <label className="auth__label">E-mail
+              <input
+                className="auth__input"
+                value={values.email || ''}
+                name="email"
+                type="email"
+                placeholder="E-mail"
+                minLength={3}
+                maxLength={40}
+                onChange={onChange}
+                required />
+              <span className="auth-error">{errors['email'] || ''}</span>
+            </label >
+            <label className="auth__label">Пароль
+              <input
+                className="auth__input"
+                value={values.password || ""}
+                name="password"
+                type="password"
+                placeholder="Пароль"
+                minLength={6}
+                maxLength={20}
+                onChange={onChange}
+                required />
+              <span className="auth-error">{errors['password'] || ''}</span>
+            </label >
+            <button
+              className="auth-button hover"
+              type="submit"
+              disabled={!isValid}
+              area-label={btnText}
+            >{btnText}
+            </button>
+          </fieldset> */}
+
           {children}
         </form>
         <div className="auth__footer">
@@ -87,3 +140,4 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
 }
 
 export default AuthForm
+

@@ -91,11 +91,11 @@ function Profile({ onSignOut, children, onProfile }) {
                 required
                 onChange={handleInputChange}
                 value={values.email || ''}
-                disabled={!isEditing}
+              // disabled={!isEditing}
               />
             </fieldset>
             <span className="auth-error">{errors['email'] || ''}</span>
-            {children}
+            {/* {children} */}
             {isEditing
               ? (<button
                 className="auth-button auth-button_type_profile hover"
@@ -103,14 +103,16 @@ function Profile({ onSignOut, children, onProfile }) {
                 type="submit"
                 onClick={(e) => setTimeout(handleSubmit(e), 50)}
                 disabled={!isValid || !valuesChanged || isSending}
-              >Сохранить
+              >
+                {/* Сохранить */}
               </button>)
               : (<button
-                className="profile__button hover"
+                // className="profile__button hover"
                 aria-label="Редактировать профиль"
                 type="button"
                 onClick={() => setTimeout(handleEdit, 50)}
-              >Редактировать
+              >
+                {/* Редактировать */}
               </button>)}
           </form>
           <Link

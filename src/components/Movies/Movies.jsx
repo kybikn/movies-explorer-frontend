@@ -124,7 +124,7 @@ function Movies() {
   }, [showOnlyShort])
 
   useEffect(() => {
-    localStorage.setItem('movies', JSON.stringify(movies));
+    // localStorage.setItem('movies', JSON.stringify(movies));
   }, [movies])
 
   useEffect(() => {
@@ -166,9 +166,12 @@ function Movies() {
         errorMessage={errorMessage}
         isLoading={isLoading}
         onClick={toggleLike} />
+      {/* {showPreloader
+        ? <Preloader onClick={handleMore} />
+        : null} */}
       {showPreloader
         ? <Preloader onClick={handleMore} />
-        : null}
+        : <Preloader onClick={handleMore} />}
     </div>
   )
 }

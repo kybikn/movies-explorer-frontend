@@ -52,20 +52,20 @@ function NavigationMovies() {
       }
     }
 
-    function closeByEscape(e) {
-      if (e.key === 'Escape') {
-        setBurgerOpen(!isBurgerOpen);
-      }
-    }
+    // function closeByEscape(e) {
+    //   if (e.key === 'Escape') {
+    //     setBurgerOpen(!isBurgerOpen);
+    //   }
+    // }
 
 
 
     const handleOverlayTimeOut = setTimeout(() => document.addEventListener('click', handleOverlay), 300)
-    document.addEventListener('keydown', closeByEscape)
+    // document.addEventListener('keydown', closeByEscape)
 
     return () => {
       clearTimeout(handleOverlayTimeOut);
-      document.removeEventListener('keydown', closeByEscape);
+      // document.removeEventListener('keydown', closeByEscape);
       document.removeEventListener('click', handleOverlay)
     }
   }, [isBurgerOpen])
