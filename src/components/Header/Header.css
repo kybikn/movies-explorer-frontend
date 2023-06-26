@@ -6,10 +6,10 @@
   justify-content: space-between;
 }
 
-.header_main {
+.header_type_main {
   background: var(--color-multicolor);
 }
-.header_movies {
+.header_type_movies {
   background: var(--color-primary);
 }
 

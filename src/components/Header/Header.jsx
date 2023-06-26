@@ -11,7 +11,7 @@ function Header({ loggedIn }) {
   const mainPage = location.pathname === '/';
 
   return (
-    <header className={`header ${mainPage ? 'header_main' : 'header_movies'}`}>
+    <header className={`header ${mainPage ? 'header_type_main' : 'header_type_movies'}`}>
       <div className="header__container">
         <Logo />
         {loggedIn ? <NavigationMovies /> : <Navigation />}
