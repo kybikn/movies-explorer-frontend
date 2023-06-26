@@ -30,8 +30,8 @@ const FOOTERLINKS = [
 ];
 
 const BASEURLS = {
-  // mainApi: 'https://api.movies-kybikn.nomoredomains.rocks',
-  mainApi: 'http://localhost:3000',
+  mainApi: 'https://api.movies-kybikn.nomoredomains.rocks',
+  // mainApi: 'http://localhost:3000',
   moviesApi: 'https://api.nomoreparties.co',
 };
 
