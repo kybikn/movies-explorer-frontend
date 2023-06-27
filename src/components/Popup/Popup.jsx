@@ -36,7 +36,7 @@ const Popup = ({ isOpen, onClose, name, children }) => {
             alt="Логотип">
           </img>
         </button>
-        {/* {children} */}
+        {children}
       </div>
     </div>
   );

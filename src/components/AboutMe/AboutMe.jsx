@@ -2,7 +2,7 @@ import React from "react"
 
 import Portfolio from "../Portfolio/Portfolio";
 import "./AboutMe.css";
-// import photo from "../../images/photo.jpg"
+import photo from "../../images/photo.jpg"
 
 
 function AboutMe() {
@@ -22,10 +22,7 @@ function AboutMe() {
             rel="noreferrer">Github
           </a>
         </div>
-        <img
-          className="about-me__img"
-          // src={photo}
-          alt="Мое фото"></img>
+        <img className="about-me__img" src={photo} alt="Мое фото"></img>
       </div>
       <Portfolio />
     </section>

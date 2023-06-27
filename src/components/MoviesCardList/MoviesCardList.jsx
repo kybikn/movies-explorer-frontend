@@ -1,13 +1,13 @@
 import React from 'react'
 
 import MoviesCard from '../MoviesCard/MoviesCard';
-// import PreloaderRound from '../PreloaderRound/PreloaderRound';
+import PreloaderRound from '../PreloaderRound/PreloaderRound';
 import './MoviesCardList.css';
 
 function MoviesCardList({ movies, isLoading, errorMessage, onClick }) {
-  // if (isLoading) return (
-  //   <PreloaderRound />
-  // )
+  if (isLoading) return (
+    <PreloaderRound />
+  )
   if (errorMessage) return (
     <div className="gallery">
       <div className="gallery__message">

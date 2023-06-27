@@ -54,7 +54,7 @@ function MoviesCard({ nameRU, duration, trailerLink, imageUrl, like, movieId, on
             className="card__img"
             src={cardImage}
             alt={nameRU}
-          // onClick={() => setIsVideo(true)}
+            onClick={() => setIsVideo(true)}
           />
           <CardButton
             like={like}

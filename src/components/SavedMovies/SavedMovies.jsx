@@ -27,9 +27,8 @@ function SavedMovies() {
         setAllMovies(updateMovies);
         // обновляем список фильмов в localstorage(удаляем лайк у этого фильма)
         const moviesInStorage = JSON.parse(localStorage.getItem('movies'));
-        // const moviesNoLike =
-        deleteLikeToMovieInList(moviesInStorage, id)
-        // localStorage.setItem('movies', JSON.stringify(moviesNoLike))
+        const moviesNoLike = deleteLikeToMovieInList(moviesInStorage, id)
+        localStorage.setItem('movies', JSON.stringify(moviesNoLike))
       })
       .catch((err) => {
         console.log(err);

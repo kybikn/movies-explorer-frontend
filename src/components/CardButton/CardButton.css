@@ -19,7 +19,7 @@
 }
 
 .card__button_save {
-  /* background: var(--color-error); */
+  background: var(--color-error);
 }
 .card__button_delete {
   background: var(--color-button-save);
