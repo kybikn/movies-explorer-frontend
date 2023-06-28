@@ -4,7 +4,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SavedDevider from '../SavedDevider/SavedDevider';
 import mainApi from '../../utils/api/MainApi';
-import { ERRORMESSAGES } from '../../utils/constants';
+import { ERROR_MESSAGES } from '../../utils/constants';
 import { filterMovies, deleteLikeToMovieInList } from '../../utils/moviesUtils';
 
 function SavedMovies() {
@@ -43,7 +43,7 @@ function SavedMovies() {
     mainApi.getMovies()
       .then((formattedMovies) => {
         if (formattedMovies.length === 0) {
-          setErrorMessage(ERRORMESSAGES.notFound);
+          setErrorMessage(ERROR_MESSAGES.NOT_FOUND);
           return
         };
         setErrorMessage('');
@@ -51,7 +51,7 @@ function SavedMovies() {
         setMovies(formattedMovies);
       })
       .catch((err) => {
-        setErrorMessage(ERRORMESSAGES.network);
+        setErrorMessage(ERROR_MESSAGES.NETWORK);
       })
       .finally(() => {
         setIsLoading(false);
@@ -67,7 +67,7 @@ function SavedMovies() {
       : filteredMovies;
     setErrorMessage(moviesToShow.length
       ? ''
-      : ERRORMESSAGES.notFound);
+      : ERROR_MESSAGES.NOT_FOUND);
     setMoviesToShow(moviesToShow);
   }, [allMovies, movies, showOnlyShort, searchText]);
 

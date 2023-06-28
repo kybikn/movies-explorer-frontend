@@ -6,7 +6,14 @@ import Preloader from '../Preloader/Preloader';
 import moviesApi from '../../utils/api/MoviesApi';
 import mainApi from '../../utils/api/MainApi';
 import { useBreakpoints } from '../../hooks/useWidth';
-import { BASEURLS, ERRORMESSAGES } from '../../utils/constants';
+import {
+  BASE_URLS,
+  ERROR_MESSAGES,
+  SMALL_SCREEN,
+  MEDIUM_SCREEN,
+  LARGE_SCREEN,
+  MAX_SHORT_MOVIE_DURATION
+} from '../../utils/constants';
 import { formatMovies, filterMovies, addLikeToMovieInList, deleteLikeToMovieInList } from '../../utils/moviesUtils';
 
 function Movies() {
@@ -37,17 +44,35 @@ function Movies() {
   const [noMore, setNoMore] = useState(false);
   const [showPreloader, setShowPreloader] = useState(true);
 
-  let { s, m, l } = useBreakpoints({
-    s: { min: 0, max: 767 },
-    m: { min: 768, max: 1279 },
-    l: { min: 1280, max: null },
+  let { small, medium, large } = useBreakpoints({
+    small: {
+      min: SMALL_SCREEN.MIN_SIZE,
+      max: SMALL_SCREEN.MAX_SIZE
+    },
+    medium: {
+      min: MEDIUM_SCREEN.MIN_SIZE,
+      max: MEDIUM_SCREEN.MAX_SIZE
+    },
+    large: {
+      min: LARGE_SCREEN.MIN_SIZE,
+      max: LARGE_SCREEN.MAX_SIZE
+    },
   });
 
   let cardsAmount;
   let toAddMore;
-  if (s) { cardsAmount = 5; toAddMore = 2 };
-  if (m) { cardsAmount = 8; toAddMore = 2 }
-  if (l) { cardsAmount = 12; toAddMore = 3 }
+  if (small) {
+    cardsAmount = SMALL_SCREEN.CARDS_AMOUNT;
+    toAddMore = SMALL_SCREEN.CARDS_TO_ADD
+  };
+  if (medium) {
+    cardsAmount = MEDIUM_SCREEN.CARDS_AMOUNT;
+    toAddMore = MEDIUM_SCREEN.CARDS_TO_ADD
+  }
+  if (large) {
+    cardsAmount = LARGE_SCREEN.CARDS_AMOUNT;
+    toAddMore = LARGE_SCREEN.CARDS_TO_ADD
+  }
 
   function handleMore() {
     setMore(more + 1);
@@ -55,18 +80,17 @@ function Movies() {
 
   function handleSearch(searchText) {
     if (!searchText || !searchText.trim()) {
-      setErrorMessage(ERRORMESSAGES.text)
+      setErrorMessage(ERROR_MESSAGES.TEXT)
     } else {
       setIsLoading(true);
       Promise.all([moviesApi.getInitialMovies(), mainApi.getMovies()])
         .then(([initialMovies, savedMovies]) => {
-          const formattedMovies = formatMovies(initialMovies, BASEURLS.moviesApi);
+          const formattedMovies = formatMovies(initialMovies, BASE_URLS.MOVIES_API);
           let results = filterMovies(formattedMovies, searchText);
           if (results.length === 0) {
-            setErrorMessage(ERRORMESSAGES.notFound);
+            setErrorMessage(ERROR_MESSAGES.NOT_FOUND);
             return
           };
-
           // Обогащение лайками
           const savedIds = savedMovies.map(movie => movie.movieId);
           const resultwWithLikes = results.map(movie => {
@@ -82,7 +106,7 @@ function Movies() {
         })
         .catch((err) => {
           console.log(err);
-          setErrorMessage(ERRORMESSAGES.network);
+          setErrorMessage(ERROR_MESSAGES.NETWORK);
         })
         .finally(() => {
           setIsLoading(false);
@@ -133,7 +157,7 @@ function Movies() {
 
   useEffect(() => {
     const filteredMovies = showOnlyShort
-      ? movies.filter(movie => movie.duration <= 40)
+      ? movies.filter(movie => movie.duration <= MAX_SHORT_MOVIE_DURATION)
       : movies;
     const moviesToShow = filteredMovies.slice(0, cardsAmount + (toAddMore * more));
     if (moviesToShow.length === filteredMovies.length) {

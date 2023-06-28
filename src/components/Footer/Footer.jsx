@@ -1,6 +1,6 @@
 import React from 'react'
+import { FOOTER_LINKS } from '../../data/data';
 
-import { FOOTERLINKS } from '../../utils/constants'
 import './Footer.css';
 
 function Footer() {
@@ -10,7 +10,7 @@ function Footer() {
       <div className="footer__content">
         <p className="footer__link">&copy; {new Date().getFullYear()}</p>
         <ul className="footer__list">
-          {FOOTERLINKS.map((link) =>
+          {FOOTER_LINKS.map((link) =>
             <li key={link.id}>
               <a
                 className="footer__link hover"
