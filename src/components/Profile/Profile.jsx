@@ -100,7 +100,9 @@ function Profile({ onSignOut, children, onProfile }) {
               />
             </fieldset>
             <span className="auth-error">
-              {errors['email'] || ''}
+              {errors['email']
+                || validateEmail(values.email).message
+                || ''}
             </span>
             {children}
             {isEditing
