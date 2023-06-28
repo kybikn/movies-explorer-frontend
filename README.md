@@ -9,7 +9,7 @@ https://github.com/kybikn/movies-explorer-frontend/pull/2
 https://movies-kybikn.nomoredomains.rocks/
 
 URL бекенда конфигурируется в файле src/utils/constants.js
-в объекте BASEURLS.
+в объекте BASE_URLS.
 URL деплоя API: 'https://api.movies-kybikn.nomoredomains.rocks',
 Т.к. используются cookie, локальный фронт необходимо запускать с локальным API-сервером ('http://localhost:3000').
 Локальный API-сервер доступен тут:
