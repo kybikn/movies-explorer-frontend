@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext ';
 import ProtectedRouteElement from '../ProtectedRouteElement/ProtectedRouteElement';
+import ForbiddenForAuthRoute from '../ForbiddenForAuthRoute/ForbiddenForAuthRoute';
 import auth from '../../utils/auth';
 import mainApi from '../../utils/api/MainApi';
 import Header from '../Header/Header';
@@ -15,7 +16,7 @@ import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 import Footer from '../Footer/Footer';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
-import { ERRORMESSAGES } from '../../utils/constants';
+import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '../../utils/constants';
 import './App.css';
 
 function App() {
@@ -44,12 +45,12 @@ function App() {
         setCurrentUser(profile);
         setInfoTooltipOpen(true);
         setInfoSuccess(true);
-        setInfoMessage(ERRORMESSAGES.editProfileSuccess);
+        setInfoMessage(SUCCESS_MESSAGES.EDIT_PROFILE);
       })
       .catch((err) => {
         setInfoTooltipOpen(true);
         setInfoSuccess(false);
-        setInfoMessage(ERRORMESSAGES.profileError)
+        setInfoMessage(ERROR_MESSAGES.PROFILE_ERROR)
         console.log(err);
       })
       .finally(() => callback());
@@ -61,14 +62,14 @@ function App() {
         if (payload.user) {
           setInfoTooltipOpen(true);
           setInfoSuccess(true);
-          setInfoMessage(ERRORMESSAGES.success);
-          navigate('/signin');
+          setInfoMessage(SUCCESS_MESSAGES.REGISTER);
+          handleLogin({ email, password });
         }
       })
       .catch((err) => {
         setInfoTooltipOpen(true);
         setInfoSuccess(false);
-        setInfoMessage(ERRORMESSAGES.error)
+        setInfoMessage(ERROR_MESSAGES.ERROR)
         console.log(err);
       });
   }
@@ -86,7 +87,7 @@ function App() {
       .catch((err) => {
         setInfoTooltipOpen(true);
         setInfoSuccess(false);
-        setInfoMessage(ERRORMESSAGES.error)
+        setInfoMessage(ERROR_MESSAGES.ERROR)
         console.log(err);
       });
   }
@@ -97,11 +98,14 @@ function App() {
         setLoggedIn(false);
         setCurrentUser(null);
         if (!mainPage) navigate("/", { replace: true });
+        localStorage.removeItem('showOnlyShort');
+        localStorage.removeItem('movies');
+        localStorage.removeItem('searchText');
       })
       .catch((err) => {
         setInfoTooltipOpen(true);
         setInfoSuccess(false);
-        setInfoMessage(ERRORMESSAGES.error)
+        setInfoMessage(ERROR_MESSAGES.ERROR)
         console.log(err);
       })
   }
@@ -164,10 +168,20 @@ function App() {
           />
           <Route
             path='/signup'
-            element={<Register onRegister={handleRegister} />} />
+            element={<ForbiddenForAuthRoute
+              element={Register}
+              loggedIn={loggedIn}
+              onRegister={handleRegister}
+            />}
+          />
           <Route
             path='/signin'
-            element={<Login onLogin={handleLogin} />} />
+            element={<ForbiddenForAuthRoute
+              element={Login}
+              loggedIn={loggedIn}
+              onLogin={handleLogin}
+            />}
+          />
           <Route
             path='*'
             element={<NotFound />}>
