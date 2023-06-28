@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import './AuthForm.css'
 import Logo from '../Logo/Logo';
+import { validateEmail } from '../../utils/validation';
 
 function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text, link, values, errors, isValid }) {
   return (
@@ -24,12 +25,15 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                   value={values.name || ''}
                   name="name"
                   type="text"
+                  id="auth-text"
                   placeholder="Имя"
                   minLength={3}
                   maxLength={40}
                   onChange={onChange}
                   required />
-                <span className="auth-error">{errors['name'] || ''}</span>
+                <span className="auth-error">
+                  {errors['name'] || ''}
+                </span>
               </label >
               : ''}
             <label className="auth__label">E-mail
@@ -38,12 +42,17 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 value={values.email || ''}
                 name="email"
                 type="email"
+                id="auth-email"
                 placeholder="E-mail"
                 minLength={3}
                 maxLength={40}
                 onChange={onChange}
                 required />
-              <span className="auth-error">{errors['email'] || ''}</span>
+              <span className="auth-error">
+                {errors['email']
+                  || validateEmail(values.email).message
+                  || ''}
+              </span>
             </label >
             <label className="auth__label">Пароль
               <input
@@ -51,6 +60,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
                 value={values.password || ""}
                 name="password"
                 type="password"
+                id="auth-password"
                 placeholder="Пароль"
                 minLength={6}
                 maxLength={20}
@@ -61,7 +71,7 @@ function AuthForm({ children, formName, title, onSubmit, onChange, btnText, text
             <button
               className="auth-button hover"
               type="submit"
-              disabled={!isValid}
+              disabled={!isValid || validateEmail(values.email).invalid}
               area-label={btnText}
             >{btnText}
             </button>
