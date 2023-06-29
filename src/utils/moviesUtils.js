@@ -1,3 +1,5 @@
+import { YOUTUBE_ID_REGEX } from './constants';
+
 // Преобразование формата фильмов из beastfilms в формат фильмов на нашем сервере
 export function formatMovies(moviesToFormat, baseUrl) {
   const formattedMovies = moviesToFormat.map((movie) => {
@@ -60,8 +62,7 @@ export function deleteMovieFromList(movies, id) {
 }
 
 export function extractVideoID(url) {
-  const regExp =
-    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+  const regExp = YOUTUBE_ID_REGEX;
   const match = url.match(regExp);
   if (match && match[7].length === 11) {
     return match[7];
