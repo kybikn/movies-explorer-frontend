@@ -3,17 +3,10 @@ import React, { useEffect } from 'react';
 import './VideoPopup.css';
 import '../Popup/Popup.css';
 import close from '../../images/close.svg';
+import { extractVideoID } from '../../utils/moviesUtils';
+// import { extractVideoID } from '@utils/moviesUtils';
 
-function extractVideoID(url) {
-  var regExp =
-    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-  var match = url.match(regExp);
-  if (match && match[7].length === 11) {
-    return match[7];
-  } else {
-    alert('Could not extract video ID.');
-  }
-}
+
 
 function VideoPopup({ url, name, onClose }) {
   useEffect(() => {

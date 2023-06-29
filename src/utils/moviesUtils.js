@@ -58,3 +58,14 @@ export function deleteMovieFromList(movies, id) {
   const updatedMovies = movies.filter((movie) => movie.movieId !== id);
   return updatedMovies;
 }
+
+export function extractVideoID(url) {
+  const regExp =
+    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  if (match && match[7].length === 11) {
+    return match[7];
+  } else {
+    console.log('Could not extract video ID.');
+  }
+}
