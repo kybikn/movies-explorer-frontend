@@ -1,6 +1,6 @@
 const BASE_URLS = {
-  // MAIN_API: 'https://api.movies-kybikn.nomoredomains.rocks',
-  MAIN_API: 'http://localhost:3000',
+  MAIN_API: 'https://api.movies-kybikn.nomoredomains.rocks',
+  // MAIN_API: 'http://localhost:3000',
   MOVIES_API: 'https://api.nomoreparties.co',
 };
 
