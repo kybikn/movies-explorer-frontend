@@ -1,36 +1,74 @@
-import { React, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { React, useState, useEffect, useRef } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 import './NavigationMovies.css'
 import profile from '../../images/profile.svg'
 
+
+
 function NavigationMovies() {
+  const location = useLocation();
+
+  const mainPage = location.pathname === '/';
+  const movies = location.pathname === '/movies'
+  const savedMovies = location.pathname === '/saved-movies'
+
   const navigate = useNavigate();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
+  const burgerRef = useRef(null);
+
+  function handleMain(event) {
+    event.preventDefault();
+    navigate('/')
+  }
+
+  function handleMovies(event) {
+    event.preventDefault();
+    navigate('/movies')
+  }
+
+  function handleSavedMovies(event) {
+    event.preventDefault();
+    navigate('/saved-movies')
+  }
+
+  function handleProfile(event) {
+    event.preventDefault();
+    navigate('/profile')
+  }
 
   function handleBurgerClick() {
     setBurgerOpen(!isBurgerOpen);
   }
 
-  function handleMain(event) {
-    event.preventDefault();
-    navigate('/', { replace: true })
-  }
+  useEffect(() => {
+    if (!isBurgerOpen) {
+      return
+    };
 
-  function handleMovies(event) {
-    event.preventDefault();
-    navigate('/movies', { replace: true })
-  }
+    function handleOverlay(e) {
+      if ((e.target || e.current.target) !== burgerRef.current) {
+        setBurgerOpen(!isBurgerOpen);
+      }
+    }
 
-  function handleSavedMovies(event) {
-    event.preventDefault();
-    navigate('/saved-movies', { replace: true })
-  }
+    function closeByEscape(e) {
+      if (e.key === 'Escape') {
+        setBurgerOpen(!isBurgerOpen);
+      }
+    }
 
-  function handleProfile(event) {
-    event.preventDefault();
-    navigate('/profile', { replace: true })
-  }
+
+
+    const handleOverlayTimeOut = setTimeout(() => document.addEventListener('click', handleOverlay), 300)
+    document.addEventListener('keydown', closeByEscape)
+
+    return () => {
+      clearTimeout(handleOverlayTimeOut);
+      document.removeEventListener('keydown', closeByEscape);
+      document.removeEventListener('click', handleOverlay)
+    }
+  }, [isBurgerOpen])
 
   return (
     <div>
@@ -40,26 +78,29 @@ function NavigationMovies() {
         <span className="burger__line burger__line_middle"></span>
         <span className="burger__line burger__line_down"></span>
       </div>
-      <div className={`navigation-movies ${isBurgerOpen && 'navigation-movies_visible'}`}>
-        <ul className="navigation-movies__nav">
+      <div
+        ref={burgerRef}
+        className={`navigation-movies ${isBurgerOpen && 'navigation-movies_visible'}`}>
+        <ul className="navigation-movies__nav"
+        >
           <li>
             <NavLink
               to='/'
-              className={`navigation-movies__link_hidden ${isBurgerOpen && 'navigation-movies__link_mobile hover'}`}
+              className={`navigation-movies__link_hidden ${isBurgerOpen && 'navigation-movies__link_mobile hover'} ${mainPage && 'border'}`}
               onClick={handleMain}
             >Главная</NavLink>
           </li>
           <li>
             <NavLink
               to='/movies'
-              className={`navigation-movies__link hover ${isBurgerOpen && 'navigation-movies__link_mobile border'}`}
+              className={`navigation-movies__link hover ${isBurgerOpen && 'navigation-movies__link_mobile'} ${movies && 'border'}`}
               onClick={handleMovies}
             >Фильмы</NavLink>
           </li>
           <li>
             <NavLink
               to='/saved-movies'
-              className={`navigation-movies__link hover ${isBurgerOpen && 'navigation-movies__link_mobile'}`}
+              className={`navigation-movies__link hover ${isBurgerOpen && 'navigation-movies__link_mobile'} ${savedMovies && 'border'}`}
               onClick={handleSavedMovies}
             >Сохранённые фильмы</NavLink>
           </li>

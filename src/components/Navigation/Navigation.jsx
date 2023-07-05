@@ -6,7 +6,7 @@ import './Navigation.css'
 
 function Navigation() {
   return (
-    <div class="navigation">
+    <div className="navigation">
       <ul className="navigation__nav">
         <li>
           <NavLink

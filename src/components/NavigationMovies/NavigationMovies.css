@@ -23,6 +23,11 @@
   cursor: pointer;
 }
 
+.navigation-movies__link.border {
+  border-bottom: 2px solid var(--color-light);
+  padding: 0 0 4px;
+}
+
 .navigation-movies__link_profile {
   margin: 0 0 0 25px;
   padding: 7px 11px;
@@ -79,7 +84,7 @@
   }
 
   .navigation-movies__link_profile {
-    margin: 621px auto 0;
+    margin: 400px auto 0;
   }
 
   .navigation-movies__link_mobile {

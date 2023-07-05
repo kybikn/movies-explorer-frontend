@@ -8,6 +8,10 @@ function Register({ onRegister }) {
   const { values, errors, isValid, setValues, handleChange, resetForm } = useFormAndValidation();
 
   useEffect(() => {
+    document.title = "Movies - регистрация";
+  }, []);
+
+  useEffect(() => {
     resetForm();
   }, [resetForm]);
 

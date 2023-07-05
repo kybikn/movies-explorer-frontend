@@ -1,19 +1,19 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import './CardButton.css';
 import check from '../../images/check.svg'
 import cross from '../../images/cross.svg'
 
-function CardButton() {
-  const [isButtonActive, setButtonActive] = useState(false);
+function CardButton({ like, onClick, }) {
+  const isButtonActive = like;
 
   const location = useLocation();
 
   const moviesPage = location.pathname === '/movies';
 
   function onButtonClick() {
-    setButtonActive(!isButtonActive);
+    onClick()
   }
   return (
     <>
@@ -28,6 +28,7 @@ function CardButton() {
         )
         : (<button
           className="card__button card__button_delete hover"
+          onClick={onButtonClick}
           type="button"
         >
           <img src={cross} alt="Кнопка"></img>
