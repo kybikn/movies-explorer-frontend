@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import SearchForm from '../SearchForm/SearchForm';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import Preloader from '../Preloader/Preloader';
+import SearchForm from '../../components/SearchForm/SearchForm';
+import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
+import Preloader from '../../components/Preloader/Preloader';
 import moviesApi from '../../utils/api/MoviesApi';
 import mainApi from '../../utils/api/MainApi';
 import { useBreakpoints } from '../../hooks/useWidth';

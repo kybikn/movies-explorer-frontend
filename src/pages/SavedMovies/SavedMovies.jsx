@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import SearchForm from '../SearchForm/SearchForm';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import SavedDevider from '../SavedDevider/SavedDevider';
+import SearchForm from '../../components/SearchForm/SearchForm';
+import MoviesCardList from '../../components/MoviesCardList/MoviesCardList';
+import SavedDevider from '../../components/SavedDevider/SavedDevider';
 import mainApi from '../../utils/api/MainApi';
 import { ERROR_MESSAGES } from '../../utils/constants';
 import { filterMovies, deleteLikeToMovieInList } from '../../utils/moviesUtils';
