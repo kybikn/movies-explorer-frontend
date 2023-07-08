@@ -45,10 +45,9 @@ const LARGE_SCREEN = {
 }
 
 const REGEX_EMAIL = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,10})+$/;
+const REGEX_YOUTUBE_ID = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
 
 const MAX_SHORT_MOVIE_DURATION = 40;
-
-const YOUTUBE_ID_REGEX = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
 
 export {
   BASE_URLS,
@@ -58,6 +57,6 @@ export {
   MEDIUM_SCREEN,
   LARGE_SCREEN,
   REGEX_EMAIL,
-  MAX_SHORT_MOVIE_DURATION,
-  YOUTUBE_ID_REGEX
+  REGEX_YOUTUBE_ID,
+  MAX_SHORT_MOVIE_DURATION
 };
