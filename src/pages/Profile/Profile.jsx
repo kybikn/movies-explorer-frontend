@@ -21,7 +21,11 @@ function Profile({ onSignOut, children, onProfile }) {
     onProfile({
       name: values.name,
       email: values.email,
-      callback: () => { setIsSending(false); setIsEditing(false); resetForm(); }
+      callback: () => {
+        setIsSending(false);
+        setIsEditing(false);
+        resetForm();
+      }
     })
 
   }

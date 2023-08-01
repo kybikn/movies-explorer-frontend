@@ -1,6 +1,7 @@
+const { REACT_APP_MAIN_API } = process.env;
+
 const BASE_URLS = {
-  MAIN_API: 'https://api.movies-kybikn.nomoredomains.rocks',
-  // MAIN_API: 'http://localhost:3000',
+  MAIN_API: REACT_APP_MAIN_API || 'https://api.movies-kybikn.nomoredomains.rocks',
   MOVIES_API: 'https://api.nomoreparties.co',
 };
 
@@ -44,12 +45,11 @@ const LARGE_SCREEN = {
 }
 
 const REGEX_EMAIL = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,10})+$/;
+const REGEX_YOUTUBE_ID = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
 
 const MAX_SHORT_MOVIE_DURATION = 40;
 
-const YOUTUBE_ID_REGEX = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-
-module.exports = {
+export {
   BASE_URLS,
   ERROR_MESSAGES,
   SUCCESS_MESSAGES,
@@ -57,6 +57,6 @@ module.exports = {
   MEDIUM_SCREEN,
   LARGE_SCREEN,
   REGEX_EMAIL,
-  MAX_SHORT_MOVIE_DURATION,
-  YOUTUBE_ID_REGEX
+  REGEX_YOUTUBE_ID,
+  MAX_SHORT_MOVIE_DURATION
 };

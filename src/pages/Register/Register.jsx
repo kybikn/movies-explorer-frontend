@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 
-import AuthForm from '../AuthForm/AuthForm';
+import AuthForm from '../../components/AuthForm/AuthForm';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
 
 function Register({ onRegister }) {
