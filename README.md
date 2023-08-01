@@ -2,6 +2,9 @@
 ## Сайт:
 [Click here!](https://movies-kybikn.nomoredomains.rocks/)
 
+## Backend:
+[Click here!](https://github.com/kybikn/movies-explorer-api)
+
 ## Макет:
 [Click here!](https://disk.yandex.ru/d/OnZflT4N7trFsQ)
 
@@ -17,11 +20,9 @@
   - ***Страница авторизации.*** На ней пользователь может войти в систему. Используется валидация формы.
   - ***Страница редактирования профиля.*** Пользователь может изменить данные своего аккаунта. Используется валидация формы.
 
-## Бэкенд:
-[Click here!](https://github.com/kybikn/movies-explorer-api)
-
 ## Технологии:
 - HTML5 / CSS3
+- Pixel Perfect
 - БЭМ
 - Flexbox
 - JavaScript
