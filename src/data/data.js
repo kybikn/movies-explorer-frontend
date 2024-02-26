@@ -12,7 +12,7 @@ const PORTFOLIO_LINKS = [
   {
     id: 3,
     name: 'Одностраничное приложение',
-    link: 'https://mesto-kybikn.nomoredomains.monster/',
+    link: 'https://mesto.kybikn.ru/',
   },
 ];
 
